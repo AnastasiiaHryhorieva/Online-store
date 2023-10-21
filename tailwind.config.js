@@ -36,7 +36,8 @@ export default {
           lineHeight: "150%",
         },
       ],
-      xl: [
+      xl: ["100px", { lineHeight: "110%" }],
+      xxl: [
         "120px",
         {
           lineHeight: "150%",

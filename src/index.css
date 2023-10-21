@@ -3,20 +3,23 @@
 @tailwind utilities;
 
 @layer text {
-  .basic {
+  .text-16 {
     @apply font-body text-sm text-black;
   }
   .text-18 {
     @apply font-body text-base text-black;
   }
-  .text-20 {
+  .lg {
     @apply font-body text-base_l text-black;
   }
   .text-40 {
     @apply font-body text-title text-black;
   }
-  .text-120 {
+  .text-100 {
     @apply font-body text-xl font-bold text-transparent;
+  }
+  .text-120 {
+    @apply font-body text-xxl font-bold text-transparent;
   }
 }
 
@@ -32,6 +35,10 @@
   }
 }
 
-.text-stroke {
+.text-stroke__gray {
   -webkit-text-stroke: 2px #adadad;
+}
+
+.text-stroke__black {
+  -webkit-text-stroke: 2px #000000;
 }
