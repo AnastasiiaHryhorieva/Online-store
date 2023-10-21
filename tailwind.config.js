@@ -59,6 +59,9 @@ export default {
       colors: {
         gray: "#ADADAD",
       },
+      backgroundImage: {
+        "collection-bg": "url('src/assets/images/collection.webp')",
+      },
     },
   },
   plugins: [],

@@ -20,7 +20,9 @@ const Header = () => {
           <img src={searchIcon} alt="search-icon" />
         </div>
         <div>
-          <img src={logo} alt="logo" />
+          <NavLink to="/">
+            <img src={logo} alt="logo" />
+          </NavLink>
         </div>
         <div className="mr-36">
           <div className="flex-center">
