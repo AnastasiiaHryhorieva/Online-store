@@ -33,7 +33,7 @@ const Header = () => {
       </div>
       <nav className="flex-center">
         {navigation.map(([title, url]) => (
-          <NavLink className="basic mx-[70px] uppercase" to={url}>
+          <NavLink className="text-16 mx-[70px] uppercase" to={url}>
             {title}
           </NavLink>
         ))}
