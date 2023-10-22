@@ -1,5 +1,5 @@
 import React from "react";
-import { searchIcon, shopCartIcon, userIcon } from "./icons";
+import { searchIcon, shopCartIcon, userIcon } from "./header_icons";
 import logo from "src/assets/images/logo.webp";
 import { NavLink } from "react-router-dom";
 
@@ -32,8 +32,8 @@ const Header = () => {
         </div>
       </div>
       <nav className="flex-center flex-wrap">
-        {navigation.map(([title, url]) => (
-          <NavLink className="text-16 mx-[70px] uppercase" to={url}>
+        {navigation.map(([title, url], i) => (
+          <NavLink key={i} className="text-16 mx-[70px] uppercase" to={url}>
             {title}
           </NavLink>
         ))}
