@@ -5,14 +5,13 @@ const Maillist = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => console.log(data);
 
   return (
-    <div className="flex-around mb-12">
+    <div className="flex-around mb-12 flex-wrap">
       <p className="max-w-[432px] text-18 uppercase font-semibold">
         Підпишись на розсилку та отримай 10% знижки на наступне замовлення
       </p>
