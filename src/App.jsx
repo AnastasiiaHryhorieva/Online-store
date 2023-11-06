@@ -17,7 +17,6 @@ function App() {
       <Header />
       <Main />
       <Footer />
-      {loading ? JSON.stringify(loading) : JSON.stringify(data)}
     </>
   );
 }
