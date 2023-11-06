@@ -10,6 +10,7 @@ export default {
     },
     fontFamily: {
       body: ["Helvetica"],
+      button: ["Manrope"],
     },
     fontSize: {
       sm: [
