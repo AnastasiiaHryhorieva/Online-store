@@ -34,7 +34,7 @@ const BuyCardsElement = ({ title }) => {
         </div>
       </section>
 
-      <div className="flex gap-[30px] pb-[120px] justify-center">
+      <div className="flex gap-[30px] pb-[120px] justify-center flex-wrap">
         {active().map(
           ({ id, title, image, price, salePrice, discount, colors }) => (
             <div key={id}>
