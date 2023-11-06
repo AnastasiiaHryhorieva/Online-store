@@ -60,6 +60,7 @@ export default {
     extend: {
       colors: {
         gray: "#ADADAD",
+        footer_gray: "#FFFFFF",
       },
       backgroundImage: {
         "collection-bg": "url('src/assets/images/collection.webp')",
