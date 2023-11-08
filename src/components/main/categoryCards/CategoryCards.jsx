@@ -1,12 +1,17 @@
 import React from "react";
-import { categoryInfo } from "./category_info";
 import CategoryCard from "./card/CategoryCard";
+import useCategoriesMain from "../../../hooks/useCategories";
 
 const CategoryCards = () => {
+  const categoriesInfo = useCategoriesMain();
+
+  const { data } = categoriesInfo;
+  const categories = data?.allCategories;
+
   return (
     <div className="flex-center gap-[30px] mb-36 flex-wrap">
-      {categoryInfo.map(({ id, src, title, to }) => (
-        <CategoryCard key={id} src={src} title={title} to={to} />
+      {categories?.map((category) => (
+        <CategoryCard key={category.id} category={category} />
       ))}
     </div>
   );
