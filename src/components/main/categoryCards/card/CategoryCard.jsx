@@ -1,7 +1,8 @@
 import React from "react";
-import arrow_right from "src/assets/images/icons/arrow-right.svg";
-import { NavLink } from "react-router-dom";
+
 import { Image } from "react-datocms";
+import { NavLink } from "react-router-dom";
+import arrow_right from "src/assets/images/icons/arrow-right.svg";
 
 const CategoryCard = ({ category }) => {
   const { categoryImage } = category;

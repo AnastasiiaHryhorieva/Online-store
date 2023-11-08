@@ -1,6 +1,8 @@
 import React from "react";
-import logo from "src/assets/images/logo_white.webp";
+
 import { Link } from "react-router-dom";
+import logo from "src/assets/images/logo_white.webp";
+
 import { instagramLogo, facebookLogo, twitterLogo } from "./icons";
 
 const Footer = () => {

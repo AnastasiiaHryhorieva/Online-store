@@ -1,6 +1,8 @@
 import React from "react";
+
+import useCategoriesMain from "src/hooks/useCategories";
+
 import CategoryCard from "./card/CategoryCard";
-import useCategoriesMain from "../../../hooks/useCategories";
 
 const CategoryCards = () => {
   const categoriesInfo = useCategoriesMain();

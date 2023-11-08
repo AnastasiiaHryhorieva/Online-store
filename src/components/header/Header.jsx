@@ -1,7 +1,9 @@
 import React from "react";
-import { searchIcon, shopCartIcon, userIcon } from "./header_icons";
-import logo from "src/assets/images/logo.webp";
+
 import { NavLink } from "react-router-dom";
+import logo from "src/assets/images/logo.webp";
+
+import { searchIcon, shopCartIcon, userIcon } from "./header_icons";
 
 const Header = () => {
   const navigation = [

@@ -1,7 +1,7 @@
 import React from "react";
 
-import tempSmall from "src/assets/images/temp_small.png";
 import tempBig from "src/assets/images/temp_big.png";
+import tempSmall from "src/assets/images/temp_small.png";
 
 const PhilosophySection = () => {
   return (
