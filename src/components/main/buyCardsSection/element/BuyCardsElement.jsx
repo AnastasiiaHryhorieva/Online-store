@@ -1,9 +1,10 @@
 import React from "react";
-import { BuyCard } from "./card/BuyCard";
 
-import right_arrow from "src/assets/images/icons/arrow-right.svg";
 import { NavLink } from "react-router-dom";
 import useProductsMainPage from "src/hooks/useProductsMainPage";
+import right_arrow from "src/assets/images/icons/arrow-right.svg";
+
+import { BuyCard } from "./card/BuyCard";
 
 const BuyCardsElement = ({ title, category }) => {
   const filteredProducts = useProductsMainPage(category);

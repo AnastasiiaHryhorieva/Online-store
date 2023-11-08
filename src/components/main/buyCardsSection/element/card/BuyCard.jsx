@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
-import heartIcon from "src/assets/images/icons/heart.svg";
+
 import { Image } from "react-datocms";
+import heartIcon from "src/assets/images/icons/heart.svg";
 
 export const BuyCard = ({ product }) => {
   const { image } = product;
