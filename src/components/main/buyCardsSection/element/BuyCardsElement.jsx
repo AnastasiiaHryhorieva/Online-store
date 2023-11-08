@@ -32,11 +32,7 @@ const BuyCardsElement = ({ title, category }) => {
         {products?.map((product) => {
           return (
             <div key={product.id}>
-              {/* {product.sale ? ( */}
-              {/* <BuyCardSale product={product} /> */}
-              {/* ) : ( */}
               <BuyCard product={product} />
-              {/* )} */}
             </div>
           );
         })}
