@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer text {
+  .text-10 {
+    @apply font-body text-xs;
+  }
   .text-16 {
     @apply font-body text-sm text-black;
   }

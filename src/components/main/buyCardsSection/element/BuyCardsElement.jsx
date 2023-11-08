@@ -1,21 +1,15 @@
 import React from "react";
-import BuyCard from "./card/BuyCard";
+import { BuyCard } from "./card/BuyCard";
 
 import right_arrow from "src/assets/images/icons/arrow-right.svg";
 import { NavLink } from "react-router-dom";
+import useProductsMainPage from "src/hooks/useProductsMainPage";
 
-import { cardsInfo } from "./card/cardsInfo";
+const BuyCardsElement = ({ title, category }) => {
+  const filteredProducts = useProductsMainPage(category);
 
-const BuyCardsElement = ({ title }) => {
-  const { bestsellers, news, sale } = cardsInfo;
-
-  console.log();
-
-  const active = () => {
-    if (title === "Бестселери") return bestsellers;
-    if (title === "Новинки") return news;
-    if (title === "Sale") return sale;
-  };
+  const { data } = filteredProducts;
+  const products = data?.allProducts;
 
   return (
     <div>
@@ -35,21 +29,17 @@ const BuyCardsElement = ({ title }) => {
       </section>
 
       <div className="flex gap-[30px] pb-[120px] justify-center flex-wrap">
-        {active().map(
-          ({ id, title, image, price, salePrice, discount, colors }) => (
-            <div key={id}>
-              <BuyCard
-                id={id}
-                title={title}
-                image={image}
-                price={price}
-                salePrice={salePrice}
-                discount={discount}
-                colors={colors}
-              />
+        {products?.map((product) => {
+          return (
+            <div key={product.id}>
+              {/* {product.sale ? ( */}
+              {/* <BuyCardSale product={product} /> */}
+              {/* ) : ( */}
+              <BuyCard product={product} />
+              {/* )} */}
             </div>
-          )
-        )}
+          );
+        })}
       </div>
     </div>
   );
