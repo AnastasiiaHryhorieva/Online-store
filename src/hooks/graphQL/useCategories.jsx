@@ -22,9 +22,9 @@ const categoriesMain = `query MyQuery {
   }`;
 
 const useCategoriesMain = () => {
-  const { loading, error, data } = useQuery(categoriesMain);
+  const { data } = useQuery(categoriesMain);
 
-  return { loading, error, data };
+  return data;
 };
 
 export default useCategoriesMain;

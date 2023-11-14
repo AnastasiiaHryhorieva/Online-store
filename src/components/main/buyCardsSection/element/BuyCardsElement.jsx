@@ -1,16 +1,20 @@
 import React from "react";
 
 import { NavLink } from "react-router-dom";
-import useProductsMainPage from "src/hooks/useProductsMainPage";
-import right_arrow from "src/assets/images/icons/arrow-right.svg";
+import useProductsMainPage from "src/hooks/graphQL/useProductsMainPage";
 
 import { BuyCard } from "./card/BuyCard";
+import useIcons from "src/hooks/graphQL/useIcons";
+
+import Arrow from "../../../shared/Arrow";
 
 const BuyCardsElement = ({ title, category }) => {
   const filteredProducts = useProductsMainPage(category);
 
   const { data } = filteredProducts;
   const products = data?.allProducts;
+
+  const arrowIcon = useIcons("arrow");
 
   return (
     <div>
@@ -24,12 +28,12 @@ const BuyCardsElement = ({ title, category }) => {
           <p className="text-40 uppercase">{title}</p>
           <NavLink to="/" className="flex-center gap-[10px]">
             <p className="text-18 font-semibold">Дивитись всі</p>
-            <img src={right_arrow} alt="right_arrow" />
+            <Arrow />
           </NavLink>
         </div>
       </section>
 
-      <div className="flex gap-[30px] pb-[120px] justify-center flex-wrap">
+      <div className="flex gap-[30px] mb-[120px] justify-center flex-wrap">
         {products?.map((product) => {
           return (
             <div key={product.id}>

@@ -46,11 +46,11 @@ const products = `query Products($category: String) {
   }`;
 
 const useProductsMainPage = (category) => {
-  const { loading, error, data } = useQuery(products, {
+  const { data } = useQuery(products, {
     variables: { category },
   });
 
-  return { loading, error, data };
+  return { data };
 };
 
 export default useProductsMainPage;
