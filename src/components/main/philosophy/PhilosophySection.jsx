@@ -2,8 +2,14 @@ import React from "react";
 
 import tempBig from "src/assets/images/temp_big.png";
 import tempSmall from "src/assets/images/temp_small.png";
+import useImage from "../../../hooks/graphQL/useImage";
 
 const PhilosophySection = () => {
+  const girlImage = useImage("girl_orange");
+  const flowersImage = useImage("white_red_pink_flowers");
+
+  console.log(flowersImage);
+
   return (
     <div className="px-[150px] mb-[150px]">
       <div className="grid grid-cols-2 gap-36 mb">
@@ -17,10 +23,14 @@ const PhilosophySection = () => {
               tortor aenean est tellus sociis viverra.
             </p>
           </section>
-          <img src={tempSmall} alt="temp" />
+          <img src={flowersImage?.src} alt={flowersImage?.alt} />
         </div>
         <div>
-          <img src={tempBig} alt="temp" className="mb-[109px]" />
+          <img
+            src={girlImage?.src}
+            alt={girlImage?.alt}
+            className="mb-[109px]"
+          />
           <section>
             <p className="text-18 max-w-[426px]">
               Lorem ipsum dolor sit amet consectetur. Ullamcorper odio faucibus

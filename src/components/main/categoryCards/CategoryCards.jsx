@@ -1,13 +1,13 @@
 import React from "react";
 
-import useCategoriesMain from "src/hooks/useCategories";
+import useCategoriesMain from "src/hooks/graphQL/useCategories";
 
 import CategoryCard from "./card/CategoryCard";
 
 const CategoryCards = () => {
   const categoriesInfo = useCategoriesMain();
 
-  const { data } = categoriesInfo;
+  const data = categoriesInfo;
   const categories = data?.allCategories;
 
   return (
