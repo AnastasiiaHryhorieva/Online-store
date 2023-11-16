@@ -6,7 +6,7 @@ import useProductsMainPage from "src/hooks/graphQL/useProductsMainPage";
 import { BuyCard } from "./card/BuyCard";
 import useIcons from "src/hooks/graphQL/useIcons";
 
-import Arrow from "../../../shared/Arrow";
+import Arrow from "src/components/shared/Arrow";
 
 const BuyCardsElement = ({ title, category }) => {
   const filteredProducts = useProductsMainPage(category);

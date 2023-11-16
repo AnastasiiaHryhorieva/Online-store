@@ -2,8 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import useLogo from "../../hooks/graphQL/useLogo";
-import useSocials from "../../hooks/graphQL/useSocials";
+import useLogo from "src/hooks/graphQL/useLogo";
+import useSocials from "src/hooks/graphQL/useSocials";
 
 const Footer = () => {
   const socials = useSocials();
