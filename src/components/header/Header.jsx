@@ -1,9 +1,16 @@
 import React from "react";
-import { searchIcon, shopCartIcon, userIcon } from "./header_icons";
-import logo from "src/assets/images/logo.webp";
+
 import { NavLink } from "react-router-dom";
 
+import useMainLogo from "src/hooks/graphQL/useLogo";
+import useIcons from "src/hooks/graphQL/useIcons";
+
 const Header = () => {
+  const mainLogo = useMainLogo("main");
+  const searchIcon = useIcons("search");
+  const cartIcon = useIcons("cart");
+  const userIcon = useIcons("user");
+
   const navigation = [
     ["Новинки", "/new"],
     ["Верхній одяг", "/outerwear"],
@@ -17,17 +24,23 @@ const Header = () => {
     <header className="mt-4 mb-6">
       <div className="flex-between pt-2 mb-6">
         <div className="ml-36">
-          <img src={searchIcon} alt="search-icon" />
+          <NavLink to="#">
+            <img src={searchIcon?.url} alt={searchIcon?.alt} />
+          </NavLink>
         </div>
         <div>
           <NavLink to="/">
-            <img src={logo} alt="logo" />
+            <img src={mainLogo?.src} alt={mainLogo?.alt} />
           </NavLink>
         </div>
         <div className="mr-36">
           <div className="flex-center">
-            <img src={userIcon} alt="user-icon" className="mx-5" />
-            <img src={shopCartIcon} alt="shopcart-icon" />
+            <NavLink to="#" className="mx-5">
+              <img src={userIcon?.url} alt={userIcon?.alt} />
+            </NavLink>
+            <NavLink to="#">
+              <img src={cartIcon?.url} alt={cartIcon?.alt} />
+            </NavLink>
           </div>
         </div>
       </div>

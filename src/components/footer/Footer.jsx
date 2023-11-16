@@ -1,15 +1,24 @@
 import React from "react";
-import logo from "src/assets/images/logo_white.webp";
+
 import { Link } from "react-router-dom";
-import { instagramLogo, facebookLogo, twitterLogo } from "./icons";
+
+import useLogo from "src/hooks/graphQL/useLogo";
+import useSocials from "src/hooks/graphQL/useSocials";
 
 const Footer = () => {
+  const socials = useSocials();
+
+  const data = socials;
+  const socialsData = data?.allUploads;
+
+  const logo = useLogo("secondary");
+
   return (
     <footer className="bg-black pt-[120px] text-white">
       <div className="flex justify-around gap-[150px] mb-[50px] max-w-[1046px] m-auto flex-wrap">
         <div>
           <Link to="/">
-            <img src={logo} alt="logo" />
+            <img src={logo?.src} alt={logo?.alt} />
           </Link>
         </div>
         <div className="flex gap-[126px]">
@@ -53,26 +62,16 @@ const Footer = () => {
               <li>
                 <Link to="#">Відгуки</Link>
               </li>
-              <li>
-                <Link></Link>
-              </li>
-              <li>
-                <Link></Link>
-              </li>
             </ul>
           </section>
         </div>
       </div>
       <div className="flex gap-4  mb-[132px] max-w-[1046px] m-auto">
-        <Link to="#">
-          <img src={instagramLogo} alt="instagram logo" />
-        </Link>
-        <Link to="#">
-          <img src={twitterLogo} alt="twitter logo" />
-        </Link>
-        <Link to="#">
-          <img src={facebookLogo} alt="facebook logo" />
-        </Link>
+        {socialsData?.map((icon) => (
+          <Link to="#" key={icon.id}>
+            <img src={icon.url} alt={icon.alt} />
+          </Link>
+        ))}
       </div>
       <div className="flex-center gap-10 pb-5">
         <p className="opacity-70">

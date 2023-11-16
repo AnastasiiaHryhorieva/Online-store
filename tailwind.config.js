@@ -13,6 +13,12 @@ export default {
       button: ["Manrope"],
     },
     fontSize: {
+      xs: [
+        "10px",
+        {
+          lineHeight: "15px",
+        },
+      ],
       sm: [
         "16px",
         {

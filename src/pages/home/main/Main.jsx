@@ -1,9 +1,14 @@
 import React from "react";
-import Collection from "./collection/Collection";
-import PhilosophySection from "./philosophy/PhilosophySection";
-import CategoryCards from "./categoryCards/CategoryCards";
+
 import BuyCardsSection from "./buyCardsSection/BuyCardsSection";
+
+import CategoryCards from "./categoryCards/CategoryCards";
+
+import Collection from "./collection/Collection";
+
 import Maillist from "./maillist/Maillist";
+
+import PhilosophySection from "./philosophy/PhilosophySection";
 
 const Main = () => {
   return (
