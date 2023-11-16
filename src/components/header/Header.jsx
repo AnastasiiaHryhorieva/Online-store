@@ -2,8 +2,8 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 
-import useMainLogo from "../../hooks/graphQL/useLogo";
-import useIcons from "../../hooks/graphQL/useIcons";
+import useMainLogo from "src/hooks/graphQL/useLogo";
+import useIcons from "src/hooks/graphQL/useIcons";
 
 const Header = () => {
   const mainLogo = useMainLogo("main");

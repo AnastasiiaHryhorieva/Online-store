@@ -1,14 +1,10 @@
 import React from "react";
 
-import tempBig from "src/assets/images/temp_big.png";
-import tempSmall from "src/assets/images/temp_small.png";
-import useImage from "../../../hooks/graphQL/useImage";
+import useImage from "src/hooks/graphQL/useImage";
 
 const PhilosophySection = () => {
   const girlImage = useImage("girl_orange");
   const flowersImage = useImage("white_red_pink_flowers");
-
-  console.log(flowersImage);
 
   return (
     <div className="px-[150px] mb-[150px]">
