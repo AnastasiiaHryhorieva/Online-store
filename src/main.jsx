@@ -10,7 +10,7 @@ import router from "./routes";
 const client = new GraphQLClient({
   url: "https://graphql.datocms.com/",
   headers: {
-    Authorization: "Bearer 90c4dc302cbe36d790dcec6ca3929c",
+    Authorization: "Bearer fba1f95b075986643c801e5f90df51",
   },
 });
 

@@ -21,7 +21,7 @@ const useLogo = (type) => {
     variables: { type },
   });
 
-  return data?.upload?.responsiveImage;
+  return data?.upload;
 };
 
 export default useLogo;
