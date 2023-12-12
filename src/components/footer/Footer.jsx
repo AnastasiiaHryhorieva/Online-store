@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="flex justify-around gap-[150px] mb-[50px] max-w-[1046px] m-auto flex-wrap">
         <div>
           <Link to="/">
-            <img src={logo?.src} alt={logo?.alt} />
+            <img src={logo?.responsiveImage?.src} alt={logo?.alt} />
           </Link>
         </div>
         <div className="flex gap-[126px]">

@@ -1,13 +1,26 @@
 import { useQuery } from "graphql-hooks";
 
-const allProducts = `query allProducts {
-  allProducts {
+const allProducts = `query allProducts($category: String, 
+  $priceMin: FloatType, 
+  $priceMax: FloatType) {
+  allProducts(filter: {typeCategory: {eq: $category}, 
+      AND: {OR: {price: {gte: $priceMin}, 
+      AND: {price: {lte: $priceMax}}}}}) {
     title
     id
     discount
     priceCategory
     image {
-      url
+      responsiveImage {
+        src
+        width
+        height
+        title
+        alt
+        sizes
+        base64
+        bgColor
+      }
     }
     price
     salePrice
@@ -32,8 +45,12 @@ const allProducts = `query allProducts {
   }
 }`;
 
-const useAllProducts = () => {
-  const { loading, error, data } = useQuery(allProducts);
+const useAllProducts = (category, priceMin, priceMax) => {
+  const { loading, error, data } = useQuery(allProducts, {
+    variables: category,
+    priceMin,
+    priceMax,
+  });
 
   return { loading, error, data };
 };

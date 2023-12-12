@@ -4,7 +4,7 @@ import { Image } from "react-datocms";
 import { NavLink } from "react-router-dom";
 import heartIcon from "src/assets/images/icons/heart.svg";
 
-export const BuyCard = ({ product }) => {
+const BuyCard = ({ product, smallSize }) => {
   const { image } = product;
   const { responsiveImage } = image;
 
@@ -23,7 +23,7 @@ export const BuyCard = ({ product }) => {
   }, [product.salePrice, product.discount, product.price]);
 
   return (
-    <div className="w-fit relative">
+    <div className={` ${smallSize && "w-72"} relative`}>
       <div>
         <Image data={responsiveImage} />
         <NavLink>
@@ -38,21 +38,11 @@ export const BuyCard = ({ product }) => {
             <p className="max-w-[220px]">{product.title}</p>
             {product.salePrice ? saleCard : <p>{product.price} ₴</p>}
           </div>
-          <div className="flex gap-2 items-center">
-            {/* <button
-              className={`inline-block w-5 h-5 bg-${color?.hex} rounded-full border-slate-500`}
-            ></button>
-            <button
-              className={`inline-block w-5 h-5 bg-[#DBBDA3] rounded-full border-slate-500`}
-            ></button>
-            <button
-              className={`inline-block w-5 h-5 bg-[#595E6C] rounded-full border-slate-500`}
-            ></button> */}
-
-            <p className="text-14 text-[#9C9EA9]">+1</p>
-          </div>
+          <div className="flex gap-2 items-center"></div>
         </div>
       </div>
     </div>
   );
 };
+
+export default BuyCard;
