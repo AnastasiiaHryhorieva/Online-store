@@ -71,6 +71,9 @@ export default {
       backgroundImage: {
         "collection-bg": "url('src/assets/images/collection.webp')",
       },
+      gridTemplateColumns: {
+        filter: "repeat(5,1fr)",
+      },
     },
   },
   plugins: [],
