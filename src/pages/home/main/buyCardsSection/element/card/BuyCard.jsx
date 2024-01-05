@@ -4,7 +4,7 @@ import { Image } from "react-datocms";
 import { NavLink } from "react-router-dom";
 import heartIcon from "src/assets/images/icons/heart.svg";
 
-const BuyCard = ({ product, smallSize }) => {
+const BuyCard = ({ product, smallSize, isNew }) => {
   const { image } = product;
   const { responsiveImage } = image;
 
@@ -35,7 +35,13 @@ const BuyCard = ({ product, smallSize }) => {
         </NavLink>
         <div className="mx-4">
           <div className="flex justify-between text-18 uppercase font-semibold my-4">
-            <p className="max-w-[220px]">{product.title}</p>
+            <p style={{ fontWeight: 400 }} className="max-w-[220px]">
+              {product.title}
+              {isNew === "New" && (
+                <span style={{ marginLeft: 10, color: "#1CCC8F" }}>NEW</span>
+              )}
+            </p>
+
             {product.salePrice ? saleCard : <p>{product.price} ₴</p>}
           </div>
           <div className="flex gap-2 items-center"></div>

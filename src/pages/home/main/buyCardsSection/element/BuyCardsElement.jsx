@@ -2,11 +2,12 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 import useProductsMainPage from "src/hooks/graphQL/useProductsMainPage";
+import { BsArrowRight } from "react-icons/bs";
 
 import BuyCard from "./card/BuyCard";
-import useIcons from "src/hooks/graphQL/useIcons";
+// import useIcons from "src/hooks/graphQL/useIcons";
 
-import Arrow from "src/components/shared/Arrow";
+// import Arrow from "src/components/shared/Arrow";
 
 const BuyCardsElement = ({ title, category }) => {
   const filteredProducts = useProductsMainPage(category);
@@ -26,7 +27,8 @@ const BuyCardsElement = ({ title, category }) => {
           <p className="text-40 uppercase">{title}</p>
           <NavLink to="/" className="flex-center gap-[10px]">
             <p className="text-18 font-semibold">Дивитись всі</p>
-            <Arrow />
+            <BsArrowRight style={{ width: 24, height: 28 }} />
+            {/* <Arrow /> */}
           </NavLink>
         </div>
       </section>
@@ -35,7 +37,7 @@ const BuyCardsElement = ({ title, category }) => {
         {products?.map((product) => {
           return (
             <div key={product.id}>
-              <BuyCard product={product} />
+              <BuyCard isNew={category} product={product} />
             </div>
           );
         })}
