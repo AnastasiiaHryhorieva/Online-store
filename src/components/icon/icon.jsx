@@ -1,3 +1,6 @@
+import { cn } from "src/helpers/helpers";
+import styles from "./styles.module.css";
+
 import ArrowRight from "src/assets/images/icons/arrow-right.svg?react";
 import Heart from "src/assets/images/icons/heart.svg?react";
 import Search from "src/assets/images/icons/search.svg?react";
@@ -21,7 +24,9 @@ const icons = {
 const Icon = ({ className, name, size = 24 }) => {
   const SVG = icons[name];
 
-  return <SVG className={className} width={size} height={size} />;
+  return (
+    <SVG className={cn(styles.icon, className)} width={size} height={size} />
+  );
 };
 
 export { Icon };
