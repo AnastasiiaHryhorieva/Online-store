@@ -1,12 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { BsArrowRight } from "react-icons/bs";
 
 import useProductsMainPage from "src/hooks/graphQL/useProductsMainPage";
 import BuyCard from "./card/BuyCard";
-
-// import useIcons from "src/hooks/graphQL/useIcons";
-// import Arrow from "src/components/shared/Arrow";
 
 const BuyCardsElement = ({ title, category }) => {
   const filteredProducts = useProductsMainPage(category);
@@ -17,22 +13,19 @@ const BuyCardsElement = ({ title, category }) => {
   return (
     <div>
       <section>
-        <div className="flex-between relative px-[140px] mb-6">
-          <p
-            className={`text-120 text-stroke__gray absolute -top-[148%] left-[6%] uppercase -z-10`}
-          >
+        <div className="flex-between relative mb-6 px-[140px]">
+          <p className="text-120 text-stroke__gray absolute -top-[148%] left-[6%] -z-10 uppercase">
             {title}
           </p>
           <p className="text-40 uppercase">{title}</p>
-          <NavLink to="/" className="flex-center gap-[10px] mr-2">
+          <NavLink to="/" className="flex-center mr-2 gap-[10px]">
             <p className="text-18 font-semibold">Дивитись всі</p>
-            <BsArrowRight style={{ width: 24, height: 28 }} />
-            {/* <Arrow /> */}
+            {/* TOOD: arrow icon */}
           </NavLink>
         </div>
       </section>
 
-      <div className="flex gap-[30px] mb-[120px] justify-center flex-wrap">
+      <div className="mb-[120px] flex flex-wrap justify-center gap-[30px]">
         {products?.map((product) => {
           return (
             <div key={product.id}>
