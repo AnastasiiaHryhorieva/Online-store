@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --green: #1ccc8f;
+    --red: #ff0359;
+    --orange: #ff7a00;
+    --pink: #ff32ea;
+  }
+}
+
 @layer text {
   .text-10 {
     @apply font-body text-xs;
@@ -28,14 +37,18 @@
 
 @layer utilities {
   .flex-center {
-    @apply flex justify-center items-center;
+    @apply flex items-center justify-center;
   }
   .flex-between {
-    @apply flex justify-between items-center;
+    @apply flex items-center justify-between;
   }
   .flex-around {
-    @apply flex justify-around items-center;
+    @apply flex items-center justify-around;
   }
+}
+
+.container {
+  @apply mx-auto box-content w-auto max-w-full px-4 md:px-8 xl:max-w-[1140px];
 }
 
 .text-stroke__gray {

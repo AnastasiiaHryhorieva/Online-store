@@ -1,49 +1,47 @@
 import React from "react";
-
 import { NavLink } from "react-router-dom";
 
-import useMainLogo from "src/hooks/graphQL/useLogo";
-import useIcons from "src/hooks/graphQL/useIcons";
-import { navigation } from "src/data/headerNavigation";
+import { navigationItems } from "src/data/navigation-items";
+import { Logo } from "src/components/logo/logo";
+import { Icon } from "src/components/icon/icon";
 
 const Header = () => {
-  const mainLogo = useMainLogo("main");
-  console.log(mainLogo);
-  const searchIcon = useIcons("search");
-  const cartIcon = useIcons("cart");
-  const userIcon = useIcons("user");
-
   return (
-    <header className="mt-4 mb-6">
-      <div className="flex-between pt-2 mb-6">
-        <div className="ml-36">
-          <NavLink to="#">
-            <img src={searchIcon?.url} alt={searchIcon?.alt} />
+    <header className="pb-6 pt-4">
+      <div className="container">
+        <div className="mb-6 grid grid-cols-[1fr_min-content_1fr] items-center gap-4">
+          {/* TODO: create popup with search form */}
+          <NavLink className="mr-auto" to="#">
+            <Icon className="duration-200 hover:text-[--green]" name="search" />
           </NavLink>
-        </div>
-        <div>
-          <NavLink to="/">
-            <img src={mainLogo?.responsiveImage?.src} alt={mainLogo?.alt} />
-          </NavLink>
-        </div>
-        <div className="mr-36">
-          <div className="flex-center">
-            <NavLink to="#" className="mx-5">
-              <img src={userIcon?.url} alt={userIcon?.alt} />
+
+          <Logo />
+
+          <div className="ml-auto flex items-center gap-5">
+            <NavLink to="#">
+              <Icon className="duration-200 hover:text-[--green]" name="user" />
             </NavLink>
             <NavLink to="#">
-              <img src={cartIcon?.url} alt={cartIcon?.alt} />
+              <Icon
+                className="duration-200 hover:text-[--green]"
+                name="shoppingBag"
+              />
             </NavLink>
           </div>
         </div>
+
+        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:gap-x-8 lg:gap-x-[70px]">
+          {navigationItems.map((item) => (
+            <NavLink
+              key={item.id}
+              className="text-16 relative pb-[2px] uppercase after:absolute after:left-1/2 after:top-full after:h-[1px] after:w-0 after:bg-current after:duration-200 after:content-[''] hover:after:left-0 hover:after:w-full"
+              to={item.url}
+            >
+              {item.title}
+            </NavLink>
+          ))}
+        </nav>
       </div>
-      <nav className="flex-center flex-wrap gap-[70px]">
-        {navigation.map((el) => (
-          <NavLink key={el.id} className="text-16 uppercase" to={el.url}>
-            {el.title}
-          </NavLink>
-        ))}
-      </nav>
     </header>
   );
 };

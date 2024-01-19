@@ -1,4 +1,4 @@
-export const navigation = [
+export const navigationItems = [
   { id: 0, title: "Новинки", url: "/new" },
   { id: 1, title: "Верхній одяг", url: "/outerwear" },
   { id: 2, title: "Нижній одяг", url: "/undercoat" },
