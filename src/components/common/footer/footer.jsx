@@ -15,7 +15,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-black pt-[120px] text-white">
-      <div className="flex justify-around gap-[150px] mb-[50px] max-w-[1046px] m-auto flex-wrap">
+      <div className="m-auto mb-[50px] flex max-w-[1046px] flex-wrap justify-around gap-[150px]">
         <div>
           <Link to="/">
             <img src={logo?.responsiveImage?.src} alt={logo?.alt} />
@@ -23,7 +23,7 @@ const Footer = () => {
         </div>
         <div className="flex gap-[126px]">
           <section className="flex flex-col gap-6">
-            <h4 className="text-[20px] uppercase font-bold">Контакти</h4>
+            <h4 className="text-[20px] font-bold uppercase">Контакти</h4>
             <ul className="flex flex-col gap-4 opacity-70">
               <li>вул. Бойківська 1, Львів</li>
               <li>пн-сб: 11:00-19:00</li>
@@ -31,7 +31,7 @@ const Footer = () => {
             </ul>
           </section>
           <section className="flex flex-col gap-6">
-            <h4 className="text-[20px] uppercase font-bold">Магазин</h4>
+            <h4 className="text-[20px] font-bold uppercase">Магазин</h4>
             <ul className="flex flex-col gap-4 opacity-70">
               <li>
                 <Link to="/suits&bodysuits">Костюми та боді</Link>
@@ -51,7 +51,7 @@ const Footer = () => {
             </ul>
           </section>
           <section className="flex flex-col gap-6">
-            <h4 className="text-[20px] uppercase font-bold">Наш сервіс</h4>
+            <h4 className="text-[20px] font-bold uppercase">Наш сервіс</h4>
             <ul className="flex flex-col gap-4 opacity-70">
               <li>
                 <Link to="#">Доставка та оплата</Link>
@@ -66,7 +66,7 @@ const Footer = () => {
           </section>
         </div>
       </div>
-      <div className="flex gap-4  mb-[132px] max-w-[1046px] m-auto">
+      <div className="m-auto mb-[132px]  flex max-w-[1046px] gap-4">
         {socialsData?.map((icon) => (
           <Link to="#" key={icon.id}>
             <img src={icon.url} alt={icon.alt} />
@@ -86,4 +86,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export { Footer };

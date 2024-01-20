@@ -1,11 +1,9 @@
-import React from "react";
-
+import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import { GraphQLClient, ClientContext } from "graphql-hooks";
 
+import { GraphQLClient, ClientContext } from "graphql-hooks";
+import { App } from "src/components/app/app";
 import "./index.css";
-import router from "./routes";
 
 const client = new GraphQLClient({
   url: "https://graphql.datocms.com/",
@@ -15,9 +13,9 @@ const client = new GraphQLClient({
 });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <StrictMode>
     <ClientContext.Provider value={client}>
-      <RouterProvider router={router} />
+      <App />
     </ClientContext.Provider>
-  </React.StrictMode>
+  </StrictMode>,
 );

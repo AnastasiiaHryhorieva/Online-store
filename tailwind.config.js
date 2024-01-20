@@ -65,7 +65,6 @@ export default {
     },
     extend: {
       colors: {
-        gray: "#ADADAD",
         footer_gray: "#FFFFFF",
       },
       backgroundImage: {

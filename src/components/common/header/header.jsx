@@ -1,9 +1,8 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 import { navigationItems } from "src/data/navigation-items";
-import { Logo } from "src/components/logo/logo";
-import { Icon } from "src/components/icon/icon";
+import { Logo } from "src/components/common/logo/logo";
+import { Icon } from "src/components/common/icon/icon";
 
 const Header = () => {
   return (
@@ -46,4 +45,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export { Header };
