@@ -5,7 +5,7 @@ const Philosophy = () => {
   const flowersImage = useImage("white_red_pink_flowers");
 
   return (
-    <section className="py-[75px] md:py-[150px]">
+    <section className="my-[75px] md:my-[150px]">
       <div className="container grid gap-y-10 md:grid-cols-[35%_55%] md:gap-x-[10%]">
         <div>
           <h2 className="mb-[40px] text-title uppercase">Наша філософія</h2>

@@ -2,7 +2,7 @@ import { Subscription } from "src/components/common/subscription/subscription";
 
 import { Collection } from "./collection/collection";
 import { Philosophy } from "./philosophy/philosophy";
-import { CategoryCards } from "./category-cards/category-cards";
+import { Categories } from "./categories/categories";
 import { BuyCardsSection } from "./buy-cards-section/buy-cards-section";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <Collection />
       <Philosophy />
-      <CategoryCards />
+      <Categories />
       <BuyCardsSection />
       <Subscription />
     </>
