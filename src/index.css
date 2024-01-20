@@ -48,7 +48,7 @@
 }
 
 .container {
-  @apply mx-auto box-content w-auto max-w-full px-4 md:px-8 xl:max-w-[1140px];
+  @apply mx-auto box-content w-auto max-w-full px-4 md:px-8 lg:max-w-[1140px];
 }
 
 .text-stroke__gray {
