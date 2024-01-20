@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
-import useAllProducts from "src/hooks/graphQL/useAllProducts";
-import BuyCard from "src/pages/home/main/buyCardsSection/element/card/BuyCard";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+
+import useAllProducts from "src/hooks/graphQL/useAllProducts";
+// TODO: move BuyCard component to components/common
+import { BuyCard } from "src/components/home/buy-cards-section/buy-cards-element/buy-card/buy-card";
 
 const Cards = () => {
   const [stringQueries, setStringQueries] = useState([]);
@@ -19,7 +21,7 @@ const Cards = () => {
   const products = data?.allProducts;
 
   return (
-    <div className="flex flex-wrap gap-7 mb-16">
+    <div className="mb-16 flex flex-wrap gap-7">
       {products?.map((product) => {
         return (
           <div key={product.id}>
@@ -31,4 +33,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export { Cards };

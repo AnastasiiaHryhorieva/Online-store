@@ -1,4 +1,3 @@
-import React from "react";
 import { filters } from "src/data/filters";
 import Filter from "src/components/shared/Filter";
 
@@ -12,4 +11,4 @@ const Filters = () => {
   );
 };
 
-export default Filters;
+export { Filters };
