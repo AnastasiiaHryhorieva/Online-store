@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { Image } from "react-datocms";
 
 import { cn } from "src/helpers/helpers";
 import { Icon } from "src/components/common/icon/icon";
@@ -30,15 +31,10 @@ const Card = ({ title, image, price, discount, colors = [] }) => {
   const hiddenColorsLength = colors.length - colorsToShow;
 
   return (
-    <div className="mx-auto max-w-[360px]">
-      <div className="relative mb-4">
+    <div>
+      <div className="relative">
         <NavLink className="block" to="#">
-          {/* <Image data={image} /> */}
-          <img
-            className="h-[450px] w-[360px]"
-            src="https://placehold.co/360x450"
-            alt="#"
-          />
+          <Image className="!max-w-full" data={image} />
         </NavLink>
         <button className="absolute right-4 top-4" type="button">
           <Icon
@@ -47,9 +43,9 @@ const Card = ({ title, image, price, discount, colors = [] }) => {
           />
         </button>
       </div>
-      <div className="flex gap-3 px-4">
+      <div className="flex gap-3 p-4 pb-0">
         <div className="flex-grow">
-          <NavLink className="text-base uppercase" to="#">
+          <NavLink className="text-base uppercase hover:underline" to="#">
             {title}
           </NavLink>
           {Boolean(colors.length) && (
@@ -84,7 +80,7 @@ const Card = ({ title, image, price, discount, colors = [] }) => {
                 })}
               </ul>
               {hiddenColorsLength > 0 && (
-                <span className="-mt-0.5 ml-[6px] leading-none text-[#9C9EA9]">
+                <span className="-mt-0.5 ml-[6px] whitespace-nowrap leading-none text-[#9C9EA9]">
                   +{hiddenColorsLength}
                 </span>
               )}
@@ -97,12 +93,12 @@ const Card = ({ title, image, price, discount, colors = [] }) => {
               <span className="whitespace-nowrap text-base text-[--red]">
                 {discountPrice} <sup>-{discount}%</sup>
               </span>
-              <span className="text-sm text-black/60 line-through">
+              <span className="whitespace-nowrap text-sm text-black/60 line-through">
                 {price} ₴
               </span>
             </>
           ) : (
-            <span className="text-sm">{price} ₴</span>
+            <span className="whitespace-nowrap text-sm">{price} ₴</span>
           )}
         </div>
       </div>

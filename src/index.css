@@ -51,7 +51,7 @@
   @apply mx-auto box-content w-auto max-w-full px-4 md:px-8 lg:max-w-[1140px];
 }
 
-.text-stroke__gray {
+.text-stroke-gray {
   -webkit-text-stroke: 2px #adadad;
 }
 
