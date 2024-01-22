@@ -17,15 +17,18 @@ const Header = () => {
           <Logo />
 
           <div className="ml-auto flex items-center gap-5">
-            <NavLink to="/account">
-              <Icon className="duration-200 hover:text-[--green]" name="user" />
+            <NavLink className="group" to="/account">
+              <Icon
+                className="fill-transparent duration-200 hover:fill-black group-[.active]:pointer-events-none group-[.active]:fill-black"
+                name="user"
+              />
             </NavLink>
-            <NavLink to="#">
+            <button type="button">
               <Icon
                 className="duration-200 hover:text-[--green]"
                 name="shoppingBag"
               />
-            </NavLink>
+            </button>
           </div>
         </div>
 

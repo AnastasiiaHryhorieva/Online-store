@@ -54,7 +54,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="link-hover text-base leading-[normal]"
-                    to="/suits&bodysuits"
+                    to="/suits_bodysuits"
                   >
                     Костюми та боді
                   </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="link-hover text-base leading-[normal]"
-                    to="/underwear"
+                    to="/undercoat"
                   >
                     Нижній одяг
                   </Link>

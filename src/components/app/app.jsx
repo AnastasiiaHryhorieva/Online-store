@@ -5,6 +5,9 @@ import { Home } from "@/components/home/home";
 import { Catalog } from "@/components/catalog/catalog";
 import { CatalogContent } from "@/components/catalog/catalog-content/catalog-content";
 import { Account } from "@/components/account/account";
+import { PersonalInformation } from "@/components/account/personal-information/personal-information";
+import { Orders } from "@/components/account/orders/orders";
+import { Favorites } from "@/components/account/favorites/favorites";
 import { Error } from "@/components/error/error";
 
 const router = createBrowserRouter([
@@ -30,6 +33,20 @@ const router = createBrowserRouter([
       {
         path: "account",
         element: <Account />,
+        children: [
+          {
+            path: "",
+            element: <PersonalInformation />,
+          },
+          {
+            path: "orders",
+            element: <Orders />,
+          },
+          {
+            path: "favorites",
+            element: <Favorites />,
+          },
+        ],
       },
     ],
   },
