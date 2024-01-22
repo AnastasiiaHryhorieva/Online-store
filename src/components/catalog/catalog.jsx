@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-import { Subscription } from "src/components/common/subscription/subscription";
+import { Subscription } from "@/components/common/subscription/subscription";
 import { CatalogAside } from "./catalog-aside/catalog-aside";
 
 const Catalog = () => {

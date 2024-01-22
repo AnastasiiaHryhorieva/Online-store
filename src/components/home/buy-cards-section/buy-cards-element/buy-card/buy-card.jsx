@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { Image } from "react-datocms";
 import { NavLink } from "react-router-dom";
 
-import heartIcon from "src/assets/images/icons/heart.svg";
+import heartIcon from "@/assets/images/icons/heart.svg";
 
 const BuyCard = ({ product, smallSize, isNew }) => {
   const { image } = product;

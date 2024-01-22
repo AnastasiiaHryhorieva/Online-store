@@ -1,10 +1,11 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { Layout } from "src/components/layout/layout";
-import { Home } from "src/components/home/home";
-import { Catalog } from "src/components/catalog/catalog";
-import { CatalogContent } from "src/components/catalog/catalog-content/catalog-content";
-import { Error } from "src/components/error/error";
+import { Layout } from "@/components/layout/layout";
+import { Home } from "@/components/home/home";
+import { Catalog } from "@/components/catalog/catalog";
+import { CatalogContent } from "@/components/catalog/catalog-content/catalog-content";
+import { Account } from "@/components/account/account";
+import { Error } from "@/components/error/error";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             element: <CatalogContent />,
           },
         ],
+      },
+      {
+        path: "account",
+        element: <Account />,
       },
     ],
   },

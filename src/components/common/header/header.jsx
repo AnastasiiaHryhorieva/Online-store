@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-import { navigationItems } from "src/data/navigation-items";
-import { Logo } from "src/components/common/logo/logo";
-import { Icon } from "src/components/common/icon/icon";
+import { navigationItems } from "@/data/navigation-items";
+import { Logo } from "@/components/common/logo/logo";
+import { Icon } from "@/components/common/icon/icon";
 
 const Header = () => {
   return (
@@ -17,7 +17,7 @@ const Header = () => {
           <Logo />
 
           <div className="ml-auto flex items-center gap-5">
-            <NavLink to="#">
+            <NavLink to="/account">
               <Icon className="duration-200 hover:text-[--green]" name="user" />
             </NavLink>
             <NavLink to="#">

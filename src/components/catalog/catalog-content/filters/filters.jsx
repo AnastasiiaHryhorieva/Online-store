@@ -1,5 +1,5 @@
-import { filters } from "src/data/filters";
-import Filter from "src/components/shared/Filter";
+import { filters } from "@/data/filters";
+import Filter from "@/components/shared/Filter";
 
 const Filters = () => {
   return (

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import useProductsMainPage from "src/hooks/graphQL/useProductsMainPage";
+import useProductsMainPage from "@/hooks/graphQL/useProductsMainPage";
 import { BuyCard } from "./buy-card/buy-card";
 
 const BuyCardsElement = ({ title, category }) => {

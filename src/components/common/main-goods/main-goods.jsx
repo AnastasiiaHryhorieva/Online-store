@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-import useProductsMainPage from "src/hooks/graphQL/useProductsMainPage";
-import { Card } from "src/components/common/card/card";
-import { Icon } from "src/components/common/icon/icon";
+import useProductsMainPage from "@/hooks/graphQL/useProductsMainPage";
+import { Card } from "@/components/common/card/card";
+import { Icon } from "@/components/common/icon/icon";
 
 const MainGoods = ({ title, category }) => {
   const filteredProducts = useProductsMainPage(category);

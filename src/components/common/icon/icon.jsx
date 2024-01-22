@@ -1,11 +1,11 @@
-import ArrowRight from "src/assets/images/icons/arrow-right.svg?react";
-import Heart from "src/assets/images/icons/heart.svg?react";
-import Search from "src/assets/images/icons/search.svg?react";
-import ShoppingBag from "src/assets/images/icons/shopping-bag.svg?react";
-import User from "src/assets/images/icons/user.svg?react";
-import Facebook from "src/assets/images/icons/facebook.svg?react";
-import Instagram from "src/assets/images/icons/instagram.svg?react";
-import Twitter from "src/assets/images/icons/twitter.svg?react";
+import ArrowRight from "@/assets/images/icons/arrow-right.svg?react";
+import Heart from "@/assets/images/icons/heart.svg?react";
+import Search from "@/assets/images/icons/search.svg?react";
+import ShoppingBag from "@/assets/images/icons/shopping-bag.svg?react";
+import User from "@/assets/images/icons/user.svg?react";
+import Facebook from "@/assets/images/icons/facebook.svg?react";
+import Instagram from "@/assets/images/icons/instagram.svg?react";
+import Twitter from "@/assets/images/icons/twitter.svg?react";
 
 const icons = {
   arrowRight: ArrowRight,

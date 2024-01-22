@@ -1,5 +1,5 @@
-import Categories from "src/components/shared/Categories";
-import { asideCategories } from "src/data/asideCategories";
+import Categories from "@/components/shared/Categories";
+import { asideCategories } from "@/data/asideCategories";
 
 const CatalogAside = () => {
   return (

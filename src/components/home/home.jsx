@@ -1,5 +1,5 @@
-import { MainGoods } from "src/components/common/main-goods/main-goods";
-import { Subscription } from "src/components/common/subscription/subscription";
+import { MainGoods } from "@/components/common/main-goods/main-goods";
+import { Subscription } from "@/components/common/subscription/subscription";
 
 import { Collection } from "./collection/collection";
 import { Philosophy } from "./philosophy/philosophy";

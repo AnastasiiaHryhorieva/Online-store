@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 
 import { GraphQLClient, ClientContext } from "graphql-hooks";
-import { App } from "src/components/app/app";
+import { App } from "@/components/app/app";
 import "./index.css";
 
 const client = new GraphQLClient({

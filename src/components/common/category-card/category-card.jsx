@@ -1,7 +1,7 @@
 import { Image } from "react-datocms";
 import { NavLink } from "react-router-dom";
 
-import { Icon } from "src/components/common/icon/icon";
+import { Icon } from "@/components/common/icon/icon";
 
 const CategoryCard = ({ category }) => {
   const { categoryImage } = category;

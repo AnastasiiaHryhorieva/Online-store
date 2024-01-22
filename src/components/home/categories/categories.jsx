@@ -1,5 +1,5 @@
-import useCategoriesMain from "src/hooks/graphQL/useCategories";
-import { CategoryCard } from "src/components/common/category-card/category-card";
+import useCategoriesMain from "@/hooks/graphQL/useCategories";
+import { CategoryCard } from "@/components/common/category-card/category-card";
 
 const Categories = () => {
   const categoriesInfo = useCategoriesMain();

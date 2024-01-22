@@ -1,5 +1,5 @@
 import React from "react";
-import useIcons from "src/hooks/graphQL/useIcons";
+import useIcons from "@/hooks/graphQL/useIcons";
 
 const Arrow = () => {
   const arrowIcon = useIcons("arrow");

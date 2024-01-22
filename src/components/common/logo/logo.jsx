@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-import { cn } from "src/helpers/helpers";
-import LogoIcon from "src/assets/images/logo.svg?react";
+import { cn } from "@/helpers/helpers";
+import LogoIcon from "@/assets/images/logo.svg?react";
 
 const Logo = ({ className }) => {
   return (

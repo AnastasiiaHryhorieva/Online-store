@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { Image } from "react-datocms";
 
-import { cn } from "src/helpers/helpers";
-import { Icon } from "src/components/common/icon/icon";
+import { cn } from "@/helpers/helpers";
+import { Icon } from "@/components/common/icon/icon";
 
 // TODO: add colors to product in cms
 // const colors = [
