@@ -11,42 +11,6 @@
   }
 }
 
-@layer text {
-  .text-10 {
-    @apply font-body text-xs;
-  }
-  .text-16 {
-    @apply font-body text-sm text-black;
-  }
-  .text-18 {
-    @apply font-body text-base text-black;
-  }
-  .lg {
-    @apply font-body text-base_l text-black;
-  }
-  .text-40 {
-    @apply font-body text-title text-black;
-  }
-  .text-100 {
-    @apply font-body text-xl font-bold text-transparent;
-  }
-  .text-120 {
-    @apply font-body text-xxl font-bold text-transparent;
-  }
-}
-
-@layer utilities {
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
-  .flex-between {
-    @apply flex items-center justify-between;
-  }
-  .flex-around {
-    @apply flex items-center justify-around;
-  }
-}
-
 .container {
   @apply mx-auto box-content w-auto max-w-full px-4 md:px-8 lg:max-w-[1140px];
 }
@@ -67,6 +31,28 @@
 .button:focus-visible {
   color: #000;
   background-color: #fff;
+}
+
+.link-hover {
+  position: relative;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+
+.link-hover::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transition: inherit;
+}
+
+.link-hover:hover::before {
+  width: 100%;
+  left: 0;
 }
 
 .text-stroke-gray {
