@@ -8,7 +8,7 @@ const Collection = () => {
           SS'2023 Collection
         </h1>
         <NavLink
-          className="flex min-w-[226px] items-center justify-center border border-black bg-black px-4 pb-3 pt-2 text-[20px] leading-normal text-white duration-300 hover:bg-transparent hover:text-black"
+          className="button min-w-[226px] text-center hover:bg-transparent focus-visible:bg-transparent"
           to="#"
         >
           Переглянути

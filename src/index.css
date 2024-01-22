@@ -51,6 +51,24 @@
   @apply mx-auto box-content w-auto max-w-full px-4 md:px-8 lg:max-w-[1140px];
 }
 
+.button {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  height: 50px;
+  padding: 12px 32px;
+  background-color: #000;
+  border: 1px solid #000;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus-visible {
+  color: #000;
+  background-color: #fff;
+}
+
 .text-stroke-gray {
   -webkit-text-stroke: 2px #adadad;
 }
