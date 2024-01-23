@@ -25,8 +25,7 @@ const Account = () => {
           ]}
         />
 
-        <div className="mt-8 grid grid-cols-[180px_1fr] gap-x-20">
-          {/* TODO: do aside modal on mobile screen */}
+        <div className="mt-8 grid gap-x-20 md:grid-cols-[180px_1fr]">
           <aside className="mt-5">
             <nav>
               <ul className="space-y-4">
