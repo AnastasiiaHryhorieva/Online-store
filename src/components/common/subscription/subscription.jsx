@@ -39,7 +39,7 @@ const Subscription = () => {
               })}
             />
             {errors.subscription && (
-              <span className="absolute left-0 top-full text-[14px] leading-none text-[red]">
+              <span className="absolute left-0 top-full text-xs leading-none text-[red]">
                 {errors.subscription.message}
               </span>
             )}

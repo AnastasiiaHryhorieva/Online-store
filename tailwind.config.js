@@ -9,12 +9,11 @@ export default {
       xl: "1440px",
     },
     fontFamily: {
-      body: ["Helvetica"],
-      button: ["Manrope"],
+      primary: ["Helvetica"],
     },
     fontSize: {
       xs: [
-        "10px",
+        "14px",
         {
           lineHeight: "15px",
         },
@@ -43,13 +42,6 @@ export default {
           lineHeight: "150%",
         },
       ],
-      xl: ["100px", { lineHeight: "110%" }],
-      xxl: [
-        "120px",
-        {
-          lineHeight: "150%",
-        },
-      ],
     },
     borderWidth: {
       DEFAULT: "1px",
@@ -64,14 +56,8 @@ export default {
       "2px": "2px",
     },
     extend: {
-      colors: {
-        footer_gray: "#FFFFFF",
-      },
       backgroundImage: {
         "collection-bg": "url('src/assets/images/collection.webp')",
-      },
-      gridTemplateColumns: {
-        filter: "repeat(5,1fr)",
       },
     },
   },

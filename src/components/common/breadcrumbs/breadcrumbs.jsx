@@ -19,7 +19,7 @@ const Breadcrumbs = ({ className }) => {
           <NavLink
             className={({ isActive }) =>
               cn(
-                "text-[16px] leading-normal hover:underline",
+                "text-sm leading-normal hover:underline",
                 isActive && "pointer-events-none text-black/50",
               )
             }

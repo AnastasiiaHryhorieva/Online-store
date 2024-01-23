@@ -9,7 +9,7 @@ const Input = ({ label, name, control, errors, rules, className, ...rest }) => {
     <div className="relative">
       <label
         className={cn(
-          "pointer-events-none absolute left-4 top-2 text-[14px] leading-none text-black/60",
+          "pointer-events-none absolute left-4 top-2 text-xs leading-none text-black/60",
           errors[name] && "text-rose-500",
         )}
       >
