@@ -15,6 +15,8 @@ const getBreadcrumbLabel = (pathname) => {
     case "/account/favorites": {
       return "Улюблені товари";
     }
+    default:
+      return "unknown";
   }
 };
 
