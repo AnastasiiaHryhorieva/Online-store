@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <Account />,
         children: [
           {
-            path: "",
+            path: "personal-information",
             element: <PersonalInformation />,
           },
           {

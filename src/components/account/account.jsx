@@ -7,23 +7,7 @@ const Account = () => {
   return (
     <section className="pb-16 pt-4">
       <div className="container">
-        {/* TODO: */}
-        <Breadcrumbs
-          links={[
-            {
-              title: "Головна сторінка",
-              href: "/",
-            },
-            {
-              title: "Особистий кабінет",
-              href: "/account",
-            },
-            {
-              title: "Особисті дані",
-              href: "/account",
-            },
-          ]}
-        />
+        <Breadcrumbs />
 
         <div className="mt-8 grid gap-x-20 md:grid-cols-[180px_1fr]">
           <aside className="mt-5">
@@ -32,7 +16,7 @@ const Account = () => {
                 {[
                   {
                     title: "Особисті дані",
-                    href: "/account",
+                    href: "/account/personal-information",
                   },
                   {
                     title: "Мої замовлення",
