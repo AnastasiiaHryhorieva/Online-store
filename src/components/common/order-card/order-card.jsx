@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const OrderCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -51,47 +52,57 @@ const OrderCard = () => {
             <span className="text-xs leading-normal">Замовлення №1940</span>
             <span className="text-xs leading-normal">2 товари</span>
           </div>
-
-          <table className="w-full border-collapse">
+          <table className="w-full">
             <thead>
               <tr className="text-left">
-                <th className="p-0 font-normal">Товар</th>
-                <th className="p-0 font-normal">Назва</th>
-                <th className="p-0 font-normal">Розмір</th>
-                <th className="p-0 font-normal">Колір</th>
+                <th className="p-0 pr-2 font-normal">Товар</th>
+                <th className="p-0 pr-2 font-normal">Назва</th>
+                <th className="p-0 pr-2 font-normal">Розмір</th>
+                <th className="p-0 pr-2 font-normal">Колір</th>
                 <th className="p-0 font-normal">Ціна</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="mb-6 text-xs">
-                <td className="p-0">
-                  <img
-                    className="h-[130px]"
-                    src="/img/girl_in_grey.webp"
-                    alt="Оверсайз жакет CLASSY"
-                  />
+              <tr className="text-xs">
+                <td className="p-0 py-6 pr-2">
+                  <NavLink className="inline-block" to="#">
+                    <img
+                      className="h-[130px]"
+                      src="/img/girl_in_grey.webp"
+                      alt="Оверсайз жакет CLASSY"
+                    />
+                  </NavLink>
                 </td>
-                <td className="p-0">Оверсайз жакет CLASSY</td>
-                <td className="p-0">M</td>
-                <td className="p-0">світло-сірий</td>
-                <td className="p-0 font-bold">3650 ₴</td>
+                <td className="p-0 py-6 pr-2">
+                  <NavLink className="hover:underline" to="#">
+                    Оверсайз жакет CLASSY
+                  </NavLink>
+                </td>
+                <td className="p-0 py-6 pr-2">M</td>
+                <td className="p-0 py-6 pr-2">світло-сірий</td>
+                <td className="p-0 py-6 font-bold">3650 ₴</td>
               </tr>
               <tr className="text-xs">
-                <td className="p-0">
-                  <img
-                    className="h-[130px]"
-                    src="/img/girl_in_black.webp"
-                    alt="Сітка-лонг LAST DRINK"
-                  />
+                <td className="p-0 pr-2">
+                  <NavLink className="inline-block" to="#">
+                    <img
+                      className="h-[130px]"
+                      src="/img/girl_in_black.webp"
+                      alt="Сітка-лонг LAST DRINK"
+                    />
+                  </NavLink>
                 </td>
-                <td className="p-0">Сітка-лонг LAST DRINK</td>
-                <td className="p-0 uppercase">L</td>
-                <td className="p-0">чорний</td>
-                <td className="font-bold">650 ₴</td>
+                <td className="p-0 pr-2">
+                  <NavLink className="hover:underline" to="#">
+                    Сітка-лонг LAST DRINK
+                  </NavLink>
+                </td>
+                <td className="p-0 pr-2 uppercase">L</td>
+                <td className="p-0 pr-2">чорний</td>
+                <td className="p-0 font-bold">650 ₴</td>
               </tr>
             </tbody>
           </table>
-
           <div className="my-[60px] grid grid-cols-2 gap-16">
             <div>
               <h3 className="mb-4 font-bold">Доставка</h3>
@@ -110,7 +121,6 @@ const OrderCard = () => {
               </div>
             </div>
           </div>
-
           <div className="mb-1 flex justify-between">
             <span>Разом</span>
             <span>4300₴</span>
@@ -123,7 +133,6 @@ const OrderCard = () => {
             <span className="font-bold">Сума до сплати</span>
             <span className="font-bold">4300₴</span>
           </div>
-
           <button
             className="text-xs underline"
             type="button"
