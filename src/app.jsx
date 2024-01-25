@@ -9,6 +9,7 @@ import { PersonalInformation } from "@/components/account/personal-information/p
 import { Orders } from "@/components/account/orders/orders";
 import { Favorites } from "@/components/account/favorites/favorites";
 import { Error } from "@/components/error/error";
+import { Product } from "@/components/product/product";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
             element: <CatalogContent />,
           },
         ],
+      },
+      {
+        path: "product/:slug",
+        element: <Product />,
       },
       {
         path: "account",

@@ -37,6 +37,7 @@ const MainGoods = ({ title, category }) => {
                 discount={product.discount}
                 colors={product.colors}
                 isNew={product.isnew}
+                slug={product.slug}
               />
             </li>
           ))}
