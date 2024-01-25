@@ -4,31 +4,20 @@ import { Image } from "react-datocms";
 import { cn } from "@/helpers/helpers";
 import { Icon } from "@/components/common/icon/icon";
 
-// TODO: add colors to product in cms
-// const colors = [
-//   {
-//     active: true,
-//     title: "Білий",
-//     code: "#fff",
-//   },
-//   {
-//     title: "Чорний",
-//     code: "#000",
-//   },
-//   {
-//     title: "Червоний",
-//     code: "red",
-//   },
-//   {
-//     title: "Сірий",
-//     code: "rgba(0, 0, 0, 0.2)",
-//   },
-// ];
-
-const Card = ({ title, image, price, discount, colors = [] }) => {
+const Card = ({
+  title,
+  image,
+  price,
+  discount,
+  colors = [],
+  isNew,
+  isAvailable,
+  showAvailability,
+}) => {
   const discountPrice = price - price * (discount / 100);
   const colorsToShow = 3;
   const hiddenColorsLength = colors.length - colorsToShow;
+  // TODO: discount can be % can be number
 
   return (
     <div>
@@ -43,64 +32,84 @@ const Card = ({ title, image, price, discount, colors = [] }) => {
           />
         </button>
       </div>
-      <div className="flex gap-3 p-4 pb-0">
-        <div className="flex-grow">
-          <NavLink className="text-base uppercase hover:underline" to="#">
-            {title}
-          </NavLink>
-          {Boolean(colors.length) && (
-            <div className="mb-10 mt-4 flex items-center">
-              <ul className="flex gap-2">
-                {colors.map((color, index) => {
-                  const isWhiteColor = color.title === "Білий";
+      <div className="p-4 pb-0">
+        <div className="flex gap-3">
+          <div className="flex-grow">
+            <p className="text-base uppercase">
+              <NavLink className="hover:underline" to="#">
+                {title}
+              </NavLink>
+              {isNew && <span className="text-[--green]"> new</span>}
+            </p>
+            {Boolean(colors.length) && (
+              <div className="mb-10 mt-4 flex items-center">
+                <ul className="flex gap-2">
+                  {colors.map((color, index) => {
+                    const isWhiteColor = color.color.hex === "#FFFFFF";
 
-                  if (index + 1 > colorsToShow) return;
+                    if (index + 1 > colorsToShow) return;
 
-                  return (
-                    <li
-                      key={color.title}
-                      className={cn(
-                        "flex h-5 w-5 items-center justify-center rounded-full border border-black/40",
-                        !color.active && !isWhiteColor && "border-none",
-                      )}
-                      title={color.title}
-                    >
-                      <span
+                    return (
+                      <li
+                        key={index}
                         className={cn(
-                          "h-full w-full rounded-full",
-                          color.active && "h-3 w-3",
-                          color.active &&
-                            isWhiteColor &&
-                            "border border-black/60",
+                          "group flex h-5 w-5 items-center justify-center rounded-full first:border first:border-black/40",
                         )}
-                        style={{ backgroundColor: color.code }}
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
-              {hiddenColorsLength > 0 && (
-                <span className="-mt-0.5 ml-[6px] whitespace-nowrap leading-none text-[#9C9EA9]">
-                  +{hiddenColorsLength}
+                      >
+                        <span
+                          className={cn(
+                            "h-full w-full rounded-full group-first:h-3 group-first:w-3",
+                            isWhiteColor && "border border-black/60",
+                          )}
+                          style={{ backgroundColor: color.color.hex }}
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+                {hiddenColorsLength > 0 && (
+                  <span className="-mt-0.5 ml-[6px] whitespace-nowrap leading-none text-[#9C9EA9]">
+                    +{hiddenColorsLength}
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+          <div className="flex flex-col">
+            {discount ? (
+              <>
+                <span className="whitespace-nowrap text-base text-[--red]">
+                  {discountPrice} <sup>-{discount}%</sup>
                 </span>
-              )}
-            </div>
-          )}
+                <span className="whitespace-nowrap text-sm text-black/60 line-through">
+                  {price} ₴
+                </span>
+              </>
+            ) : (
+              <span className="whitespace-nowrap text-sm">{price} ₴</span>
+            )}
+          </div>
         </div>
-        <div className="flex flex-col">
-          {discount ? (
-            <>
-              <span className="whitespace-nowrap text-base text-[--red]">
-                {discountPrice} <sup>-{discount}%</sup>
-              </span>
-              <span className="whitespace-nowrap text-sm text-black/60 line-through">
-                {price} ₴
-              </span>
-            </>
-          ) : (
-            <span className="whitespace-nowrap text-sm">{price} ₴</span>
-          )}
-        </div>
+        {showAvailability && (
+          <div className="mt-2 flex items-center justify-between gap-3">
+            {isAvailable ? (
+              <>
+                <span className="text-[--green]">Є в наявності</span>
+                <Icon className="text-[--green]" name="shoppingBag" />
+              </>
+            ) : (
+              <>
+                <span className="text-black/60">Немає в наявності</span>
+                <button type="button">
+                  <Icon
+                    className="fill-transparent text-black duration-200 hover:fill-black"
+                    name="bell"
+                  />
+                </button>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

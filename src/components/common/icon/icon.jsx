@@ -6,6 +6,7 @@ import User from "@/assets/images/icons/user.svg?react";
 import Facebook from "@/assets/images/icons/facebook.svg?react";
 import Instagram from "@/assets/images/icons/instagram.svg?react";
 import Twitter from "@/assets/images/icons/twitter.svg?react";
+import Bell from "@/assets/images/icons/bell.svg?react";
 
 const icons = {
   arrowRight: ArrowRight,
@@ -16,6 +17,7 @@ const icons = {
   facebook: Facebook,
   instagram: Instagram,
   twitter: Twitter,
+  bell: Bell,
 };
 
 const Icon = ({ className, name, size = 24 }) => {

@@ -2,9 +2,7 @@ import useCategoriesMain from "@/hooks/graphQL/useCategories";
 import { CategoryCard } from "@/components/common/category-card/category-card";
 
 const Categories = () => {
-  const categoriesInfo = useCategoriesMain();
-
-  const data = categoriesInfo;
+  const data = useCategoriesMain();
   const categories = data?.allCategories;
 
   return (

@@ -12,9 +12,9 @@ const Home = () => {
       <Philosophy />
       <Categories />
       <div className="mb-[120px] flex flex-col gap-y-[75px] lg:gap-y-[120px]">
-        <MainGoods title="Бестселери" category="Bestsellers" />
-        <MainGoods title="Sale" category="Sale" />
-        <MainGoods title="Новинки" category="New" />
+        <MainGoods title="Бестселери" category="bestsellers" />
+        <MainGoods title="Sale" category="sale" />
+        <MainGoods title="Новинки" category="new" />
       </div>
       <Subscription />
     </>

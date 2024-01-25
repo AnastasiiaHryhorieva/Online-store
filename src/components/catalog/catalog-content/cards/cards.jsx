@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import useAllProducts from "@/hooks/graphQL/useAllProducts";
-// TODO: move BuyCard component to components/common
 import { BuyCard } from "@/components/home/buy-cards-section/buy-cards-element/buy-card/buy-card";
 
 const Cards = () => {

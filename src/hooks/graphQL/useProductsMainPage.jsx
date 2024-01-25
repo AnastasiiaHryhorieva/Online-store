@@ -1,47 +1,42 @@
 import { useQuery } from "graphql-hooks";
 
-const products = `query Products($category: String) {
+const products = `
+  query Products($category: String) {
     allProducts(
       orderBy: _createdAt_ASC
       first: "3"
-      filter: {priceCategory: {eq: $category}}
+      filter: {
+        category: { eq: $category }
+      }
     ) {
-      title
       id
+      title
+      price
       discount
-      priceCategory
+      isnew
+      isavailable
+      slug
       image {
         responsiveImage {
-          src
-          width
-          height
-          title
           alt
-          sizes
           base64
           bgColor
+          height
+          sizes
+          src
+          width
         }
       }
-      price
-      salePrice
-      sale
-      slug
-      color {
-        hex
+      categories {
+        id
+        slug
+        categoryTitle
       }
-      color2 {
-        hex
+      colors {
+        color {
+          hex
+        }
       }
-      color3 {
-        hex
-      }
-      color4 {
-        hex
-      }
-      color5 {
-        hex
-      }
-      typeCategory
     }
   }`;
 

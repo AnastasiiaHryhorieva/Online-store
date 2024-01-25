@@ -35,6 +35,8 @@ const MainGoods = ({ title, category }) => {
                 image={product.image.responsiveImage}
                 price={product.price}
                 discount={product.discount}
+                colors={product.colors}
+                isNew={product.isnew}
               />
             </li>
           ))}

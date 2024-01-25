@@ -1,11 +1,13 @@
 import { useQuery } from "graphql-hooks";
 
 const categoriesMain = `query MyQuery {
-    allCategories {
-      slug
+    allCategories(
+      orderBy: _createdAt_ASC
+      first: "3"
+    ) {
       id
+      slug
       categoryTitle
-      date
       categoryImage {
         responsiveImage {
           src
