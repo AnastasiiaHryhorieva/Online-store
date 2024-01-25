@@ -36,7 +36,7 @@ const Header = () => {
           {navigationItems.map((item) => (
             <NavLink
               key={item.id}
-              className="text-16 relative pb-[2px] uppercase after:absolute after:left-1/2 after:top-full after:h-[1px] after:w-0 after:bg-current after:duration-200 after:content-[''] hover:after:left-0 hover:after:w-full"
+              className="link-hover pb-[2px] uppercase"
               to={item.url}
             >
               {item.title}

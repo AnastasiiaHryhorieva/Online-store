@@ -11,18 +11,19 @@ const Card = ({
   discount,
   colors = [],
   isNew,
+  slug,
   isAvailable,
   showAvailability,
 }) => {
   const discountPrice = price - price * (discount / 100);
   const colorsToShow = 3;
   const hiddenColorsLength = colors.length - colorsToShow;
-  // TODO: discount can be % can be number
 
   return (
     <div>
       <div className="relative">
-        <NavLink className="block" to="#">
+        {/* TODO:  */}
+        <NavLink className="block" to={`/product/${slug}`}>
           <Image className="!max-w-full" data={image} />
         </NavLink>
         <button className="absolute right-4 top-4" type="button">
@@ -36,7 +37,7 @@ const Card = ({
         <div className="flex gap-3">
           <div className="flex-grow">
             <p className="text-base uppercase">
-              <NavLink className="hover:underline" to="#">
+              <NavLink className="hover:underline" to={`/product/${slug}`}>
                 {title}
               </NavLink>
               {isNew && <span className="text-[--green]"> new</span>}
