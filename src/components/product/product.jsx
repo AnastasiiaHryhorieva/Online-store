@@ -68,7 +68,7 @@ const Product = () => {
               </button>
               <button type="button">
                 <Icon
-                  className="fill-transparent duration-200 hover:fill-black"
+                  className="fill-transparent duration-200 hover:fill-[--red] hover:text-[--red]"
                   name="heart"
                 />
               </button>

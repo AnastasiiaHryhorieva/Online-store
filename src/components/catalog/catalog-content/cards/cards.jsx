@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import useAllProducts from "@/hooks/graphQL/useAllProducts";
-import { BuyCard } from "@/components/home/buy-cards-section/buy-cards-element/buy-card/buy-card";
+// import { BuyCard } from "@/components/home/buy-cards-section/buy-cards-element/buy-card/buy-card";
 
 const Cards = () => {
   const [stringQueries, setStringQueries] = useState([]);
@@ -24,7 +24,7 @@ const Cards = () => {
       {products?.map((product) => {
         return (
           <div key={product.id}>
-            <BuyCard product={product} smallSize />
+            {/* <BuyCard product={product} smallSize /> */}
           </div>
         );
       })}

@@ -57,7 +57,7 @@ export default {
     },
     extend: {
       backgroundImage: {
-        "collection-bg": "url('src/assets/images/collection.webp')",
+        "collection-bg": "url('/img/collection.webp')",
       },
     },
   },
