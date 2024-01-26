@@ -1,6 +1,6 @@
 import { useController } from "react-hook-form";
 
-import { cn } from "@/helpers/helpers";
+import { cn } from "@/lib/utils";
 
 const Input = ({ label, name, control, errors, rules, className, ...rest }) => {
   const { field, fieldState } = useController({ name, control, rules });

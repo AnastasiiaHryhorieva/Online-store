@@ -1,6 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 
-import { cn, getBreadcrumbLabel } from "@/helpers/helpers";
+import { cn } from "@/lib/utils";
+import { getBreadcrumbLabel } from "@/helpers/helpers";
 
 const Breadcrumbs = ({ className }) => {
   const { pathname } = useLocation();

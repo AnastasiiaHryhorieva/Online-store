@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 
-import { cn } from "@/helpers/helpers";
+import { cn } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";
 
 const Account = () => {

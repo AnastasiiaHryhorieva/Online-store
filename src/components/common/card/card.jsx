@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Image } from "react-datocms";
 
-import { cn } from "@/helpers/helpers";
+import { cn } from "@/lib/utils";
 import { Icon } from "@/components/common/icon/icon";
 
 const Card = ({
@@ -43,7 +43,7 @@ const Card = ({
               {isNew && <span className="text-[--green]"> new</span>}
             </p>
             {Boolean(colors.length) && (
-              <div className="mb-10 mt-4 flex items-center">
+              <div className="mt-4 flex items-center">
                 <ul className="flex gap-2">
                   {colors.map((color, index) => {
                     const isWhiteColor = color.color.hex === "#FFFFFF";

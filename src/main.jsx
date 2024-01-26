@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import { GraphQLClient, ClientContext } from "graphql-hooks";
 import { App } from "./app";
-import "./index.css";
+import "./global.css";
 
 const client = new GraphQLClient({
   url: "https://graphql.datocms.com/",

@@ -1,6 +1,11 @@
 import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";
 import { Icon } from "@/components/common/icon/icon";
-import { NavLink } from "react-router-dom";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Product = () => {
   return (
@@ -14,44 +19,34 @@ const Product = () => {
             <span className="mb-2.5 text-[32px] font-bold">650₴</span>
             <span className="mb-4 text-base text-[--green]">Є в наявності</span>
 
-            <ul className="mt-auto">
-              <li>
-                <NavLink
-                  className="group flex items-center justify-between gap-2 border-b border-[#d9d9d9] py-5 text-base"
-                  to="#"
-                >
+            <Accordion type="multiple" collapsible={false}>
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="py-5">
                   Опис товару
-                  <Icon
-                    className="duration-200 group-hover:translate-x-1"
-                    name="arrowRight"
-                  />
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="group flex items-center justify-between gap-2 border-b border-[#d9d9d9] py-5 text-base"
-                  to="#"
-                >
-                  Склад
-                  <Icon
-                    className="duration-200 group-hover:translate-x-1"
-                    name="arrowRight"
-                  />
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="group flex items-center justify-between gap-2 border-b border-[#d9d9d9] py-5 text-base"
-                  to="#"
-                >
+                </AccordionTrigger>
+                <AccordionContent className="border-b py-5">
+                  Лонгслів з прозорої сітки. Можна носити розмір в розмір і буде
+                  облягати, або взяти більший для розлабленого ефекту.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="py-5">Склад</AccordionTrigger>
+                <AccordionContent className="border-b py-5">
+                  Лонгслів з прозорої сітки. Можна носити розмір в розмір і буде
+                  облягати, або взяти більший для розлабленого ефекту.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="py-5">
                   Догляд за річчю
-                  <Icon
-                    className="duration-200 group-hover:translate-x-1"
-                    name="arrowRight"
-                  />
-                </NavLink>
-              </li>
-            </ul>
+                </AccordionTrigger>
+                <AccordionContent className="border-b py-5">
+                  Рекомендуємо ручне прання. Не відбілювати та не сушити в
+                  сушарці барабанного типу. Краще віддати перевагу відпарюванню,
+                  а не прасуванню. Не чистити хімічно.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
 
           <div>
