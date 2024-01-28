@@ -14,7 +14,7 @@ const Favorites = () => {
           <li key={product.id}>
             <Card
               title={product.title}
-              image={product.image.responsiveImage}
+              image={product.image[0].responsiveImage}
               price={product.price}
               colors={product.colors}
               isNew={product.isnew}
