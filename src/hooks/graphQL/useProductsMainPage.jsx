@@ -1,7 +1,7 @@
 import { useQuery } from "graphql-hooks";
 
-const products = `
-  query Products($category: String) {
+const query = `
+  query getProductsByCategory($category: String) {
     allProducts(
       orderBy: _createdAt_ASC
       first: "3"
@@ -41,7 +41,7 @@ const products = `
   }`;
 
 const useProductsMainPage = (category) => {
-  const { data } = useQuery(products, {
+  const { data } = useQuery(query, {
     variables: { category },
   });
 

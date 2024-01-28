@@ -22,7 +22,7 @@ const Card = ({
   return (
     <div>
       <div className="relative">
-        {/* TODO:  */}
+        {/* TODO: url  */}
         <NavLink className="block" to={`/product/${slug}`}>
           <Image className="!max-w-full" data={image} />
         </NavLink>
