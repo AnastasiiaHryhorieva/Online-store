@@ -15,6 +15,13 @@ import {
 } from "@/components/ui/accordion";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Product = () => {
   const { slug } = useParams();
@@ -108,9 +115,17 @@ const Product = () => {
             </Accordion>
           </div>
 
-          <div>
-            <Image data={product.image[0].responsiveImage} />
-          </div>
+          <Carousel className="w-full self-start">
+            <CarouselContent>
+              {product.image.map((img, index) => (
+                <CarouselItem key={index}>
+                  <Image data={img.responsiveImage} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-0 h-10 w-10 border-none bg-transparent hover:bg-transparent [&>svg]:h-6 [&>svg]:w-6" />
+            <CarouselNext className="right-0 h-10 w-10 border-none bg-transparent hover:bg-transparent [&>svg]:h-6 [&>svg]:w-6" />
+          </Carousel>
 
           <div className="flex flex-col gap-10">
             <div>
@@ -139,50 +154,54 @@ const Product = () => {
                 })}
               </RadioGroup>
             </div>
-            <div>
-              <h2 className="mb-4 text-base">Оберіть колір</h2>
-              <RadioGroup
-                className="flex flex-wrap gap-2"
-                defaultValue={product.colors[0].color.hex}
-              >
-                {product.colors.map((color, index) => {
-                  const isWhiteColor = color.color.hex === "#FFFFFF";
+            {Boolean(product.colors.length) && (
+              <div>
+                <h2 className="mb-4 text-base">Оберіть колір</h2>
+                <RadioGroup
+                  className="flex flex-wrap gap-2"
+                  defaultValue={product.colors[0].color.hex}
+                >
+                  {product.colors.map((color, index) => {
+                    const isWhiteColor = color.color.hex === "#FFFFFF";
 
-                  return (
-                    <div>
-                      <RadioGroupItem
-                        key={index}
-                        id={color.color.hex}
-                        className="peer hidden"
-                        value={color.color.hex}
-                      />
-                      <Label
-                        className={cn(
-                          "flex h-10 w-10 cursor-pointer items-center justify-center rounded-full duration-200 peer-aria-checked:border peer-aria-checked:border-black/40 peer-aria-checked:[&_span]:h-[30px] peer-aria-checked:[&_span]:w-[30px]",
-                          isWhiteColor &&
-                            "border border-black/40 peer-aria-checked:[&_span]:border peer-aria-checked:[&_span]:border-black/60",
-                        )}
-                        htmlFor={color.color.hex}
-                      >
-                        <span
-                          className="h-full w-full rounded-full duration-200"
-                          style={{ backgroundColor: color.color.hex }}
+                    return (
+                      <div>
+                        <RadioGroupItem
+                          key={index}
+                          id={color.color.hex}
+                          className="peer hidden"
+                          value={color.color.hex}
                         />
-                      </Label>
-                    </div>
-                  );
-                })}
-              </RadioGroup>
-            </div>
+                        <Label
+                          className={cn(
+                            "flex h-10 w-10 cursor-pointer items-center justify-center rounded-full duration-200 peer-aria-checked:border peer-aria-checked:border-black/40 peer-aria-checked:[&_span]:h-[30px] peer-aria-checked:[&_span]:w-[30px]",
+                            isWhiteColor &&
+                              "border border-black/40 peer-aria-checked:[&_span]:border peer-aria-checked:[&_span]:border-black/60",
+                          )}
+                          htmlFor={color.color.hex}
+                        >
+                          <span
+                            className="h-full w-full rounded-full duration-200"
+                            style={{ backgroundColor: color.color.hex }}
+                          />
+                        </Label>
+                      </div>
+                    );
+                  })}
+                </RadioGroup>
+              </div>
+            )}
 
             <div className="mt-32 flex items-center gap-3">
-              <button className="button rounded-[3px] px-5 py-10" type="button">
+              {/* TODO: fix button styles */}
+              <button className="button rounded-[3px]" type="button">
                 Додати до Кошика
               </button>
               <button type="button">
                 <Icon
                   className="fill-transparent duration-200 hover:fill-[--red] hover:text-[--red]"
                   name="heart"
+                  size={32}
                 />
               </button>
             </div>
