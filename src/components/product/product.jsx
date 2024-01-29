@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { Image } from "react-datocms";
 
 import { useProductBySlug } from "@/hooks/graphQL/useProductBySlug";
+import { cn } from "@/lib/utils";
 import { getSizeLabel } from "@/helpers/helpers";
 import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";
 import { Icon } from "@/components/common/icon/icon";
@@ -139,7 +140,39 @@ const Product = () => {
               </RadioGroup>
             </div>
             <div>
-              <h2 className="text-base">Оберіть колір</h2>
+              <h2 className="mb-4 text-base">Оберіть колір</h2>
+              <RadioGroup
+                className="flex flex-wrap gap-2"
+                defaultValue={product.colors[0].color.hex}
+              >
+                {product.colors.map((color, index) => {
+                  const isWhiteColor = color.color.hex === "#FFFFFF";
+
+                  return (
+                    <div>
+                      <RadioGroupItem
+                        key={index}
+                        id={color.color.hex}
+                        className="peer hidden"
+                        value={color.color.hex}
+                      />
+                      <Label
+                        className={cn(
+                          "flex h-10 w-10 cursor-pointer items-center justify-center rounded-full duration-200 peer-aria-checked:border peer-aria-checked:border-black/40 peer-aria-checked:[&_span]:h-[30px] peer-aria-checked:[&_span]:w-[30px]",
+                          isWhiteColor &&
+                            "border border-black/40 peer-aria-checked:[&_span]:border peer-aria-checked:[&_span]:border-black/60",
+                        )}
+                        htmlFor={color.color.hex}
+                      >
+                        <span
+                          className="h-full w-full rounded-full duration-200"
+                          style={{ backgroundColor: color.color.hex }}
+                        />
+                      </Label>
+                    </div>
+                  );
+                })}
+              </RadioGroup>
             </div>
 
             <div className="mt-32 flex items-center gap-3">
