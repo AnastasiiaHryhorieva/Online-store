@@ -75,7 +75,7 @@ const Product = () => {
       <div className="container">
         <Breadcrumbs />
 
-        <div className="mt-10 grid grid-cols-3 gap-10">
+        <div className="mt-10 grid gap-10 md:grid-cols-2 lg:grid-cols-[290px_1fr_290px]">
           <div className="flex flex-col">
             <h1 className="mb-2.5 text-title">
               {product.title}
@@ -150,7 +150,7 @@ const Product = () => {
               <CarouselContent>
                 {product.image.map((img, index) => (
                   <CarouselItem key={index}>
-                    <Image data={img.responsiveImage} />
+                    <Image className="!max-w-full" data={img.responsiveImage} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
@@ -172,17 +172,16 @@ const Product = () => {
                   <CarouselItem
                     key={index}
                     className="flex basis-1/3 cursor-pointer items-center justify-center"
+                    onClick={() => onThumbClick(index)}
                   >
-                    <button type="button" onClick={() => onThumbClick(index)}>
-                      <Image data={img.responsiveImage} />
-                    </button>
+                    <Image data={img.responsiveImage} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
             </Carousel>
           </div>
 
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10 md:max-lg:col-start-2">
             <div>
               <h2 className="mb-4 text-base">Оберіть розмір</h2>
               <RadioGroup className="flex flex-wrap gap-3" defaultValue="xs">
@@ -199,7 +198,7 @@ const Product = () => {
                         disabled={!hasSize}
                       />
                       <Label
-                        className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-base uppercase peer-disabled:text-black/30 peer-aria-checked:border peer-aria-checked:border-current"
+                        className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-base uppercase duration-300 peer-disabled:text-black/30 peer-aria-checked:border peer-aria-checked:border-current"
                         htmlFor={sizeLabel}
                       >
                         {sizeLabel}
@@ -247,7 +246,7 @@ const Product = () => {
               </div>
             )}
 
-            <div className="mt-32 flex items-center gap-3">
+            <div className="flex items-center gap-3">
               {/* TODO: fix button styles */}
               <button className="button rounded-[3px]" type="button">
                 Додати до Кошика
