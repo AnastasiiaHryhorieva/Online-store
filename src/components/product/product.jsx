@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Image } from "react-datocms";
 
@@ -27,6 +28,34 @@ const Product = () => {
   const { slug } = useParams();
   const { loading, data } = useProductBySlug(slug);
   const product = data?.product;
+
+  const [mainApi, setMainApi] = useState();
+  const [thumbsApi, setThumbsApi] = useState();
+
+  // Scroll main slider
+  const onThumbClick = useCallback(
+    (index) => {
+      if (!mainApi || !thumbsApi) return;
+
+      mainApi.scrollTo(index);
+    },
+    [mainApi, thumbsApi],
+  );
+
+  // Scroll thumbs slider
+  const onSelect = useCallback(() => {
+    if (!mainApi || !thumbsApi) return;
+
+    thumbsApi.scrollTo(mainApi.selectedScrollSnap());
+  }, [mainApi, thumbsApi]);
+
+  useEffect(() => {
+    if (!mainApi) return;
+
+    onSelect();
+    mainApi.on("select", onSelect);
+    mainApi.on("reInit", onSelect);
+  }, [mainApi, onSelect]);
 
   if (loading) {
     return (
@@ -115,17 +144,43 @@ const Product = () => {
             </Accordion>
           </div>
 
-          <Carousel className="w-full self-start">
-            <CarouselContent>
-              {product.image.map((img, index) => (
-                <CarouselItem key={index}>
-                  <Image data={img.responsiveImage} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-0 h-10 w-10 border-none bg-transparent hover:bg-transparent [&>svg]:h-6 [&>svg]:w-6" />
-            <CarouselNext className="right-0 h-10 w-10 border-none bg-transparent hover:bg-transparent [&>svg]:h-6 [&>svg]:w-6" />
-          </Carousel>
+          <div>
+            {/* Main slider */}
+            <Carousel className="w-full" setApi={setMainApi}>
+              <CarouselContent>
+                {product.image.map((img, index) => (
+                  <CarouselItem key={index}>
+                    <Image data={img.responsiveImage} />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-0 h-10 w-10 border-none bg-transparent hover:bg-transparent [&>svg]:h-6 [&>svg]:w-6" />
+              <CarouselNext className="right-0 h-10 w-10 border-none bg-transparent hover:bg-transparent [&>svg]:h-6 [&>svg]:w-6" />
+            </Carousel>
+
+            {/* Thumbs slider */}
+            <Carousel
+              className="mt-4 w-full"
+              setApi={setThumbsApi}
+              opts={{
+                containScroll: "keepSnaps",
+                dragFree: true,
+              }}
+            >
+              <CarouselContent>
+                {product.image.map((img, index) => (
+                  <CarouselItem
+                    key={index}
+                    className="flex basis-1/3 cursor-pointer items-center justify-center"
+                  >
+                    <button type="button" onClick={() => onThumbClick(index)}>
+                      <Image data={img.responsiveImage} />
+                    </button>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
 
           <div className="flex flex-col gap-10">
             <div>
