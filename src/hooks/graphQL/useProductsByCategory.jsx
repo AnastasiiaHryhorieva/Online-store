@@ -1,20 +1,18 @@
 import { useQuery } from "graphql-hooks";
 
 const query = `
-  query getProdoctBySlug($slug: String) {
-    product(
+  query getProductsByCategory($category: String) {
+    allProducts(
+      orderBy: _createdAt_ASC
+      first: "3"
       filter: {
-        slug: { eq: $slug }
+        category: { eq: $category }
       }
     ) {
       id
       title
-      description
-      composition
-      care
       price
       discount
-      category
       isnew
       isavailable
       slug
@@ -22,36 +20,33 @@ const query = `
         responsiveImage {
           alt
           base64
+          bgColor
           height
           sizes
           src
-          title
           width
-          bgColor
         }
+      }
+      categories {
+        id
+        slug
+        categoryTitle
       }
       colors {
         color {
           hex
         }
       }
-      sizes {
-        xs
-        small
-        medium
-        large
-        xl
-      }
     }
   }
 `;
 
-const useProductBySlug = (slug) => {
+const useProductsByCategory = (category) => {
   const { loading, error, data } = useQuery(query, {
-    variables: { slug },
+    variables: { category },
   });
 
-  return { loading, error, data: data?.product };
+  return { loading, error, data: data?.allProducts };
 };
 
-export { useProductBySlug };
+export { useProductsByCategory };

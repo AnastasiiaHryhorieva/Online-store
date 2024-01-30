@@ -8,6 +8,7 @@ import { getSizeLabel } from "@/helpers/helpers";
 import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";
 import { Icon } from "@/components/common/icon/icon";
 import { Spinner } from "@/components/common/spinner/spinner";
+import { RelatedGoods } from "@/components/common/related-goods/related-goods";
 import {
   Accordion,
   AccordionContent,
@@ -26,8 +27,7 @@ import {
 
 const Product = () => {
   const { slug } = useParams();
-  const { loading, data } = useProductBySlug(slug);
-  const product = data?.product;
+  const { loading, data: product } = useProductBySlug(slug);
 
   const [mainApi, setMainApi] = useState();
   const [thumbsApi, setThumbsApi] = useState();
@@ -75,7 +75,7 @@ const Product = () => {
       <div className="container">
         <Breadcrumbs />
 
-        <div className="mt-10 grid gap-10 md:grid-cols-2 lg:grid-cols-[290px_1fr_290px]">
+        <div className="mb-[75px] mt-10 grid gap-10 md:grid-cols-2 lg:mb-[150px] lg:grid-cols-[290px_1fr_290px]">
           <div className="flex flex-col">
             <h1 className="mb-2.5 text-title">
               {product.title}
@@ -261,6 +261,8 @@ const Product = () => {
             </div>
           </div>
         </div>
+
+        <RelatedGoods category={product.category} />
       </div>
     </section>
   );
