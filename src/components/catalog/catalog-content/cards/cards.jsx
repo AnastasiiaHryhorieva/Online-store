@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import useAllProducts from "@/hooks/graphQL/useAllProducts";
-// import { BuyCard } from "@/components/home/buy-cards-section/buy-cards-element/buy-card/buy-card";
+import { Card } from "@/components/common/card/card";
 
 const Cards = () => {
   const [stringQueries, setStringQueries] = useState([]);
@@ -15,8 +15,8 @@ const Cards = () => {
     }
   }, [searchParams]);
 
-  const dsa = useAllProducts();
-  const { data } = dsa;
+  // TODO: fix useAllProducts query
+  const { data } = useAllProducts();
   const products = data?.allProducts;
 
   return (
@@ -24,7 +24,15 @@ const Cards = () => {
       {products?.map((product) => {
         return (
           <div key={product.id}>
-            {/* <BuyCard product={product} smallSize /> */}
+            <Card
+              title={product.title}
+              image={product.image[0].responsiveImage}
+              price={product.price}
+              discount={product.discount}
+              colors={product.colors}
+              isNew={product.isnew}
+              slug={product.slug}
+            />
           </div>
         );
       })}

@@ -1,27 +1,37 @@
 import { useQuery } from "graphql-hooks";
 
-const image = `query image($type: String!) {
-  upload(filter: {alt: {matches: {pattern: $type}}}) {
-    id
-    responsiveImage {
-      src
-      width
-      height
-      title
-      alt
-      sizes
-      base64
-      bgColor
+const image = `
+  query image($type: String!) {
+    upload(
+      filter: {
+        alt: {
+          matches: { pattern: $type }
+        }
+      }
+    ) {
+      id
+      responsiveImage {
+        src
+        width
+        height
+        title
+        alt
+        sizes
+        base64
+        bgColor
+      }
     }
   }
-}`;
+`;
 
 const useImage = (type) => {
-  const { data } = useQuery(image, {
+  const { loading, error, data } = useQuery(image, {
     variables: { type },
   });
 
-  return data?.upload?.responsiveImage;
+  if (loading || error) return;
+
+  return data.upload.responsiveImage;
 };
 
 export default useImage;

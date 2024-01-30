@@ -1,13 +1,11 @@
 import { NavLink } from "react-router-dom";
 
-import useProductsMainPage from "@/hooks/graphQL/useProductsMainPage";
+import { useProductsByCategory } from "@/hooks/graphQL/useProductsByCategory";
 import { Card } from "@/components/common/card/card";
 import { Icon } from "@/components/common/icon/icon";
 
 const MainGoods = ({ title, category }) => {
-  const filteredProducts = useProductsMainPage(category);
-  const { data } = filteredProducts;
-  const products = data?.allProducts;
+  const { data: products } = useProductsByCategory(category);
 
   return (
     <section>

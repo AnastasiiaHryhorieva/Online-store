@@ -1,9 +1,8 @@
-import useProductsMainPage from "@/hooks/graphQL/useProductsMainPage";
+import { useProductsByCategory } from "@/hooks/graphQL/useProductsByCategory";
 import { Card } from "@/components/common/card/card";
 
 const Favorites = () => {
-  const { data } = useProductsMainPage("bestsellers");
-  const products = data?.allProducts;
+  const { data: products } = useProductsByCategory("bestsellers");
 
   return (
     <div>
