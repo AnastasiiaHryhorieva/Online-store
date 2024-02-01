@@ -12,7 +12,7 @@ const CartCard = ({ img, title, price, discount, isNew, color, size }) => {
   return (
     <div className="flex gap-4">
       <NavLink className="max-w-[175px]" to="#">
-        <img src="./img/girl_in_brown.webp" alt="#" />
+        <img src="/img/girl_in_brown.webp" alt="#" />
       </NavLink>
 
       <div className="flex w-full gap-1">
@@ -33,9 +33,13 @@ const CartCard = ({ img, title, price, discount, isNew, color, size }) => {
           </div>
 
           <span className="my-2">{color}</span>
-          <span className="mb-4">{size}</span>
+          <span>{size}</span>
 
-          <Counter value={count} onChange={(value) => setCount(value)} />
+          <Counter
+            className="my-4"
+            value={count}
+            onChange={(value) => setCount(value)}
+          />
 
           <div className="mt-auto grid grid-cols-[1fr_min-content] items-center gap-3">
             <div className="flex items-center text-base_l">

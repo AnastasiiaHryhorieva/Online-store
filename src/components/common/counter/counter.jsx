@@ -1,6 +1,7 @@
+import { cn } from "@/lib/utils";
 import { PlusIcon, MinusIcon } from "lucide-react";
 
-const Counter = ({ value, onChange }) => {
+const Counter = ({ value, onChange, className }) => {
   const handleIncrement = () => {
     onChange(value + 1);
   };
@@ -10,7 +11,7 @@ const Counter = ({ value, onChange }) => {
   };
 
   return (
-    <div className="flex items-center gap-4">
+    <div className={cn("flex items-center gap-4", className)}>
       <button type="button" onClick={handleDecrement}>
         <MinusIcon />
       </button>

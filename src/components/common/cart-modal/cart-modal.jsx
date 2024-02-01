@@ -20,7 +20,7 @@ const CartModal = () => {
           />
         </button>
       </SheetTrigger>
-      <SheetContent className="flex flex-col p-0 sm:max-w-[520px]">
+      <SheetContent className="flex flex-col p-0 max-sm:w-full sm:max-w-[520px]">
         <div className="flex flex-wrap items-baseline justify-between gap-x-2 px-10 pt-[60px]">
           <h2 className="text-[32px]">
             Кошик
@@ -33,7 +33,7 @@ const CartModal = () => {
           </SheetClose>
         </div>
 
-        <div className="scrollbar-thin scrollbar-thumb-black/20 my-6 mr-2 flex-grow space-y-6 overflow-auto pl-10 pr-6">
+        <div className="my-6 mr-2 flex-grow space-y-6 overflow-auto pl-10 pr-6 scrollbar-thin scrollbar-thumb-black/20">
           <CartCard
             title="Джемпер COZY"
             price="890"
