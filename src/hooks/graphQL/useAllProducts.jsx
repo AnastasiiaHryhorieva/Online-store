@@ -34,11 +34,6 @@ const allProducts = `
           width
         }
       }
-      categories {
-        id
-        slug
-        categoryTitle
-      }
       colors {
         color {
           hex

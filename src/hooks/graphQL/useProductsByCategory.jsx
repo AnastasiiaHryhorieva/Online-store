@@ -27,11 +27,6 @@ const query = `
           width
         }
       }
-      categories {
-        id
-        slug
-        categoryTitle
-      }
       colors {
         color {
           hex
