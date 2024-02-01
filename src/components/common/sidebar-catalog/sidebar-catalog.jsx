@@ -1,0 +1,38 @@
+import { NavLink } from "react-router-dom";
+
+import { catalogSidebarItems } from "@/data/catalog-sidebar-items";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+const SidebarCatalog = () => {
+  return (
+    <aside>
+      <Accordion className="grid gap-4" type="multiple" collapsible={false}>
+        {catalogSidebarItems.map((item, index) => (
+          <AccordionItem key={index} value={"item-" + index}>
+            <AccordionTrigger className="w-auto text-base font-normal uppercase">
+              {item.category}
+            </AccordionTrigger>
+            <AccordionContent className="grid gap-2 pb-0 pt-2">
+              {item.subcategories.map((category, index) => (
+                <NavLink
+                  key={index}
+                  className="truncate text-sm [&.active]:font-bold [&.active]:underline [&.active]:underline-offset-4"
+                  to={"/catalog/" + category.url}
+                >
+                  {category.title}
+                </NavLink>
+              ))}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </aside>
+  );
+};
+
+export { SidebarCatalog };

@@ -1,17 +1,20 @@
-import { Outlet } from "react-router-dom";
-
+import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";
 import { Subscription } from "@/components/common/subscription/subscription";
-import { CatalogAside } from "./catalog-aside/catalog-aside";
+import { SidebarCatalog } from "@/components/common/sidebar-catalog/sidebar-catalog";
+import { CatalogContent } from "@/components/catalog/catalog-content/catalog-content";
 
 const Catalog = () => {
   return (
-    <>
-      <div className="mx-36 flex justify-center gap-16">
-        <CatalogAside />
-        <Outlet />
+    <section>
+      <div className="container pb-16 pt-4">
+        <Breadcrumbs className="mb-9" />
+        <div className="grid gap-16 md:grid-cols-[170px_1fr]">
+          <SidebarCatalog />
+          <CatalogContent />
+        </div>
       </div>
       <Subscription />
-    </>
+    </section>
   );
 };
 

@@ -120,7 +120,7 @@ const Product = () => {
 
             <Accordion className="mt-10" type="multiple" collapsible={false}>
               <AccordionItem value="item-1">
-                <AccordionTrigger className="py-5">
+                <AccordionTrigger className="border-b py-5" icon>
                   Опис товару
                 </AccordionTrigger>
                 <AccordionContent className="border-b py-5">
@@ -128,13 +128,15 @@ const Product = () => {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
-                <AccordionTrigger className="py-5">Склад</AccordionTrigger>
+                <AccordionTrigger className="border-b py-5" icon>
+                  Склад
+                </AccordionTrigger>
                 <AccordionContent className="border-b py-5">
                   {product.composition || "Інформація відсутня."}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
-                <AccordionTrigger className="py-5">
+                <AccordionTrigger className="border-b py-5" icon>
                   Догляд за річчю
                 </AccordionTrigger>
                 <AccordionContent className="border-b py-5">

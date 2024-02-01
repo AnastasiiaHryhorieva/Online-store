@@ -1,13 +1,11 @@
-export const asideCategories = [
+export const catalogSidebarItems = [
   {
-    id: 0,
     category: "Новинки",
-    url: "new",
+    subcategories: [],
   },
   {
-    id: 1,
     category: "Верхній одяг",
-    subcategory: [
+    subcategories: [
       { id: 0, title: "Бомбери", url: "bombers" },
       { id: 1, title: "Тренчі", url: "trench_coats" },
       { id: 2, title: "Пуховики", url: "down_jackets" },
@@ -19,35 +17,28 @@ export const asideCategories = [
       { id: 8, title: "Майки і Топи", url: "tshirts_tops" },
       { id: 9, title: "Футболки", url: "tshirts" },
     ],
-    url: "outerwear",
   },
   {
-    id: 2,
     category: "Нижній одяг",
-    subcategory: [
+    subcategories: [
       { id: 0, title: "Спідниці", url: "skirts" },
       { id: 1, title: "Штани", url: "pants" },
     ],
-    url: "undercoat",
   },
   {
-    id: 3,
     category: "Сукні",
-    subcategory: [
+    subcategories: [
       { id: 0, title: "Міні", url: "mini" },
       { id: 1, title: "Міді", url: "midi" },
       { id: 2, title: "Максі", url: "maxi" },
     ],
-    url: "dresses",
   },
   {
-    id: 4,
     category: "Костюми",
-    url: "costumes",
+    subcategories: [],
   },
   {
-    id: 5,
     category: "Sale",
-    url: "sale",
+    subcategories: [],
   },
 ];
