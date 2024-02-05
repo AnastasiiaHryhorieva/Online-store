@@ -8,6 +8,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const CartModal = () => {
   return (
@@ -20,7 +21,7 @@ const CartModal = () => {
           />
         </button>
       </SheetTrigger>
-      <SheetContent className="flex flex-col p-0 max-sm:w-full sm:max-w-[520px]">
+      <SheetContent className="flex flex-col gap-6 p-0 max-sm:w-full sm:max-w-[520px]">
         <div className="flex flex-wrap items-baseline justify-between gap-x-2 px-10 pt-[60px]">
           <h2 className="text-[32px]">
             Кошик
@@ -33,24 +34,30 @@ const CartModal = () => {
           </SheetClose>
         </div>
 
-        <div className="my-6 mr-2 flex-grow space-y-6 overflow-auto pl-10 pr-6 scrollbar-thin scrollbar-thumb-black/20">
-          <CartCard
-            title="Джемпер COZY"
-            price="890"
-            color="Білий"
-            size="S"
-            isNew
-          />
-          <CartCard title="Боді JOSELIN" price="460" color="Чорний" size="XS" />
-          <CartCard
-            title="Жилет MY LOVE"
-            price="1700"
-            discount={10}
-            color="Чорний"
-            size="S"
-          />
-        </div>
-
+        <ScrollArea className="mr-2 flex-grow pl-10 pr-6" type="always">
+          <div className="grid gap-6">
+            <CartCard
+              title="Джемпер COZY"
+              price="890"
+              color="Білий"
+              size="S"
+              isNew
+            />
+            <CartCard
+              title="Боді JOSELIN"
+              price="460"
+              color="Чорний"
+              size="XS"
+            />
+            <CartCard
+              title="Жилет MY LOVE"
+              price="1700"
+              discount={10}
+              color="Чорний"
+              size="S"
+            />
+          </div>
+        </ScrollArea>
         <div className="px-10 pb-10">
           <div className="mb-1 flex flex-wrap items-center justify-between gap-x-3">
             <span>Разом</span>
