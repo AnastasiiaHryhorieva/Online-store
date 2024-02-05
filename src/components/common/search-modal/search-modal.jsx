@@ -29,12 +29,9 @@ const SearchModal = ({ className }) => {
     },
   });
 
-  const onSubmit = (values) => {
-    // TODO: create search params and redirect to catalog page?
-    console.log(values);
-
+  const onSubmit = ({ searchTerm }) => {
     form.reset();
-    navigate("/catalog");
+    navigate(`/catalog?q=${searchTerm}`);
     refCloseModal.current?.click();
   };
 

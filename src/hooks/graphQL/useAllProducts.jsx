@@ -3,11 +3,17 @@ import { useQuery } from "graphql-hooks";
 const query = `
   query getAllProducts(
     $category: String,
+    $serchTerm: String!,
   ) {
     allProducts(
       filter: {
-        category: { eq: $category }
-      },
+        title: {
+          matches: { pattern: $serchTerm }
+        },
+        OR: {
+          category: { eq: $category }
+        }
+      }
     ) {
       id
       title
@@ -43,12 +49,15 @@ const query = `
   }
 `;
 
-const useAllProducts = (category, priceMin, priceMax) => {
+const useAllProducts = ({ category, serchTerm, priceMin, priceMax }) => {
   const { loading, error, data } = useQuery(query, {
-    variables: { category },
+    variables: {
+      category,
+      serchTerm,
+    },
   });
 
-  return { loading, error, data };
+  return { loading, error, data: data?.allProducts };
 };
 
 export { useAllProducts };

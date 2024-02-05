@@ -6,7 +6,7 @@ import { CatalogContent } from "@/components/catalog/catalog-content/catalog-con
 const Catalog = () => {
   return (
     <section>
-      <div className="container pb-16 pt-4">
+      <div className="container pb-12 pt-4">
         <Breadcrumbs className="mb-9" />
         <div className="grid gap-16 md:grid-cols-[170px_1fr]">
           <SidebarCatalog />
