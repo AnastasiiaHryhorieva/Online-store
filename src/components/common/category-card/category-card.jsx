@@ -9,10 +9,13 @@ const CategoryCard = ({ category }) => {
 
   return (
     <div>
-      <NavLink className="block" to={category.slug}>
+      <NavLink className="block" to={"/catalog/" + category.slug}>
         <Image className="mb-4" data={responsiveImage} />
       </NavLink>
-      <NavLink className="group flex items-center" to={category.slug}>
+      <NavLink
+        className="group flex items-center"
+        to={"/catalog/" + category.slug}
+      >
         <h2 className="text-base font-semibold uppercase">
           {category.categoryTitle}
         </h2>

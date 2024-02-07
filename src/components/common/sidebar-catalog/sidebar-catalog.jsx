@@ -11,20 +11,20 @@ import {
 const SidebarCatalog = () => {
   return (
     <aside>
-      <Accordion className="grid gap-4" type="multiple" collapsible={false}>
+      <Accordion className="grid gap-4" type="multiple">
         {catalogSidebarItems.map((item, index) => (
           <AccordionItem key={index} value={"item-" + index}>
             <AccordionTrigger className="w-auto text-base font-normal uppercase">
               {item.category}
             </AccordionTrigger>
             <AccordionContent className="grid gap-2 pb-0 pt-2">
-              {item.subcategories.map((category, index) => (
+              {item.subcategories.map((subcategory, index) => (
                 <NavLink
                   key={index}
                   className="truncate text-sm [&.active]:font-bold [&.active]:underline [&.active]:underline-offset-4"
-                  to={"/catalog/" + category.url}
+                  to={"/catalog" + item.url + "/" + subcategory.url}
                 >
-                  {category.title}
+                  {subcategory.title}
                 </NavLink>
               ))}
             </AccordionContent>

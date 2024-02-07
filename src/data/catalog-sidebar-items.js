@@ -1,9 +1,11 @@
 export const catalogSidebarItems = [
   {
+    url: "/new",
     category: "Новинки",
     subcategories: [],
   },
   {
+    url: "/outerwear",
     category: "Верхній одяг",
     subcategories: [
       { id: 0, title: "Бомбери", url: "bombers" },
@@ -19,6 +21,7 @@ export const catalogSidebarItems = [
     ],
   },
   {
+    url: "/undercoat",
     category: "Нижній одяг",
     subcategories: [
       { id: 0, title: "Спідниці", url: "skirts" },
@@ -26,6 +29,7 @@ export const catalogSidebarItems = [
     ],
   },
   {
+    url: "/dresses",
     category: "Сукні",
     subcategories: [
       { id: 0, title: "Міні", url: "mini" },
@@ -34,10 +38,12 @@ export const catalogSidebarItems = [
     ],
   },
   {
+    url: "/suits_bodysuits",
     category: "Костюми",
     subcategories: [],
   },
   {
+    url: "/sale",
     category: "Sale",
     subcategories: [],
   },
