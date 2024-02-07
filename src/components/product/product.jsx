@@ -73,7 +73,22 @@ const Product = () => {
   return (
     <section className="pb-[150px] pt-4">
       <div className="container">
-        <Breadcrumbs />
+        <Breadcrumbs
+          urls={[
+            {
+              label: "Головна сторінка",
+              href: "/",
+            },
+            {
+              label: product.category,
+              href: `/catalog/${product.category}`,
+            },
+            {
+              label: product.title,
+              href: "",
+            },
+          ]}
+        />
 
         <div className="mb-[75px] mt-10 grid gap-10 md:grid-cols-2 lg:mb-[150px] lg:grid-cols-[290px_1fr_290px]">
           <div className="flex flex-col">
@@ -118,7 +133,7 @@ const Product = () => {
               )}
             </div>
 
-            <Accordion className="mt-10" type="multiple" collapsible={false}>
+            <Accordion className="mt-10" type="multiple">
               <AccordionItem value="item-1">
                 <AccordionTrigger className="border-b py-5" icon>
                   Опис товару

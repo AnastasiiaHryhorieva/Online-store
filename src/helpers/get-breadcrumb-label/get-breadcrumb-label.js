@@ -1,23 +1,53 @@
+import { navigationItems } from "@/data/navigation-items";
+import { catalogSidebarItems } from "@/data/catalog-sidebar-items";
+
 const getBreadcrumbLabel = (pathname) => {
+  let label = "unknown";
+
   switch (pathname) {
     case "/": {
-      return "Головна сторінка";
+      label = "Головна сторінка";
+      break;
+    }
+    case "/catalog": {
+      label = "Каталог";
+      break;
     }
     case "/account": {
-      return "Особистий кабінет";
+      label = "Особистий кабінет";
+      break;
     }
     case "/account/personal-information": {
-      return "Особисті дані";
+      label = "Особисті дані";
+      break;
     }
     case "/account/orders": {
-      return "Мої замовлення";
+      label = "Мої замовлення";
+      break;
     }
     case "/account/favorites": {
-      return "Улюблені товари";
+      label = "Улюблені товари";
+      break;
     }
-    default:
-      return "unknown";
   }
+
+  navigationItems.forEach((item) => {
+    if (pathname === item.url) {
+      label = item.title;
+    }
+  });
+
+  catalogSidebarItems.forEach((item) => {
+    item.subcategories.forEach((subcategory) => {
+      const url = "/catalog" + item.url + "/" + subcategory.url;
+
+      if (pathname === url) {
+        label = subcategory.title;
+      }
+    });
+  });
+
+  return label;
 };
 
 export { getBreadcrumbLabel };
