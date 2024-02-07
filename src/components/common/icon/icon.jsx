@@ -1,4 +1,5 @@
 import ArrowRight from "@/assets/img/icons/arrow-right.svg?react";
+import ArrowDown from "@/assets/img/icons/arrow-down.svg?react";
 import Heart from "@/assets/img/icons/heart.svg?react";
 import Search from "@/assets/img/icons/search.svg?react";
 import ShoppingBag from "@/assets/img/icons/shopping-bag.svg?react";
@@ -11,6 +12,7 @@ import Trash from "@/assets/img/icons/trash.svg?react";
 
 const icons = {
   arrowRight: ArrowRight,
+  arrowDown: ArrowDown,
   heart: Heart,
   search: Search,
   shoppingBag: ShoppingBag,

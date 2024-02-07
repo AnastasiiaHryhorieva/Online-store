@@ -4,14 +4,20 @@ const query = `
   query getAllProducts(
     $category: String,
     $serchTerm: String!,
+    $priceMin: IntType,
+    $priceMax: IntType,
   ) {
     allProducts(
       filter: {
         title: {
           matches: { pattern: $serchTerm }
         },
-        OR: {
-          category: { eq: $category }
+        category: {
+          eq: $category
+        }
+        price: { 
+          gte: $priceMin,
+          lte: $priceMax 
         }
       }
     ) {
@@ -54,6 +60,8 @@ const useAllProducts = ({ category, serchTerm, priceMin, priceMax }) => {
     variables: {
       category,
       serchTerm,
+      priceMin,
+      priceMax,
     },
   });
 
