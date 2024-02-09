@@ -15,9 +15,9 @@ const query = `
         category: {
           eq: $category
         }
-        price: { 
+        price: {
           gte: $priceMin,
-          lte: $priceMax 
+          lte: $priceMax
         }
       }
     ) {
