@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FilterXIcon } from "lucide-react";
-import { useOnClickOutside } from "usehooks-ts";
 
 import { filters } from "@/data/filters";
 import { cn } from "@/lib/utils";
@@ -40,8 +39,6 @@ const Filters = () => {
     searchParams.append(key, value);
     setSearchParams(searchParams);
   };
-
-  useOnClickOutside(ref, handleClearFilters);
 
   return (
     <div ref={ref}>

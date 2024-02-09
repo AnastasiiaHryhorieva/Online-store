@@ -3,7 +3,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "@/components/layout/layout";
 import { Home } from "@/components/home/home";
 import { Catalog } from "@/components/catalog/catalog";
-import { CatalogContent } from "@/components/catalog/catalog-content/catalog-content";
 import { Account } from "@/components/account/account";
 import { PersonalInformation } from "@/components/account/personal-information/personal-information";
 import { Orders } from "@/components/account/orders/orders";
