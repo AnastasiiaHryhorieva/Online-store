@@ -1,18 +1,19 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { FilterXIcon } from "lucide-react";
+import { useOnClickOutside } from "usehooks-ts";
 
 import { filters } from "@/data/filters";
 import { cn } from "@/lib/utils";
 import { Icon } from "@/components/common/icon/icon";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
-// TODO: after refresh page need set activeFilterOptions from searchParams
 const Filters = () => {
+  const ref = useRef(null);
   const [activeFilter, setActiveFilter] = useState(0);
   const [showFilterOptions, setShowFilterOptions] = useState(false);
-  const [activeFilterOptions, setActiveFilterOptions] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+  const activeFilterOptions = Array.from(searchParams.values());
 
   const handleToggleFilter = (index) => {
     if (index === activeFilter) {
@@ -25,7 +26,6 @@ const Filters = () => {
   };
 
   const handleClearFilters = () => {
-    setActiveFilterOptions([]);
     setShowFilterOptions(false);
     setSearchParams({});
   };
@@ -41,8 +41,10 @@ const Filters = () => {
     setSearchParams(searchParams);
   };
 
+  useOnClickOutside(ref, handleClearFilters);
+
   return (
-    <div>
+    <div ref={ref}>
       <div className="flex flex-wrap gap-4">
         {filters.map((filter, index) => {
           let count = 0;
@@ -100,7 +102,6 @@ const Filters = () => {
           className="flex-wrap justify-start gap-4 overflow-hidden"
           type="multiple"
           value={activeFilterOptions}
-          onValueChange={(value) => setActiveFilterOptions(value)}
         >
           {filters[activeFilter].options.map((option) => {
             const hasColor = filters[activeFilter].id === "color";
@@ -116,7 +117,7 @@ const Filters = () => {
               >
                 {hasColor && (
                   <span
-                    className="border-current/10 mr-2 h-4 w-4 rounded-full border"
+                    className="mr-2 h-4 w-4 rounded-full border"
                     style={{ backgroundColor: option.color }}
                   />
                 )}

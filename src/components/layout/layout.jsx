@@ -11,7 +11,18 @@ const Layout = () => {
         <Outlet />
       </main>
       <Footer />
-      <ScrollRestoration />
+      <ScrollRestoration
+        getKey={(location, matches) => {
+          const paths = ["/catalog"];
+
+          return paths.includes(location.pathname)
+            ? // catalog restore by pathname
+              // does not scroll up when selecting filters
+              location.pathname
+            : // everything else by location like the browser
+              location.key;
+        }}
+      />
     </div>
   );
 };
