@@ -4,21 +4,15 @@ import { NavLink } from "react-router-dom";
 import { Icon } from "@/components/common/icon/icon";
 
 const CategoryCard = ({ category }) => {
-  const { categoryImage } = category;
-  const { responsiveImage } = categoryImage;
+  const { image } = category;
 
   return (
-    <div>
+    <div className="group">
       <NavLink className="block" to={"/catalog/" + category.slug}>
-        <Image className="mb-4" data={responsiveImage} />
+        <Image className="mb-4" data={image.responsiveImage} />
       </NavLink>
-      <NavLink
-        className="group flex items-center"
-        to={"/catalog/" + category.slug}
-      >
-        <h2 className="text-base font-semibold uppercase">
-          {category.categoryTitle}
-        </h2>
+      <NavLink className="flex items-center" to={"/catalog/" + category.slug}>
+        <h2 className="text-base font-semibold uppercase">{category.title}</h2>
         <Icon
           className="ml-4 duration-200 group-hover:translate-x-1"
           name="arrowRight"
