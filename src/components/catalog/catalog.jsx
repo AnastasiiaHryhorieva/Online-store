@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
 import { useAllProducts } from "@/hooks/graphQL/useAllProducts";
@@ -7,11 +8,19 @@ import { SidebarCatalog } from "@/components/common/sidebar-catalog/sidebar-cata
 import { Card } from "@/components/common/card/card";
 import { Filters } from "@/components/common/filters/filters";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Catalog = () => {
   const params = useParams();
-  const category = params["*"];
+  const category = params["category"];
   const skeletons = Array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+  const [sort, setSort] = useState(undefined);
 
   const [searchParams] = useSearchParams();
   const searchTerm = searchParams.get("q");
@@ -37,6 +46,7 @@ const Catalog = () => {
     category: category || undefined,
     priceMin: priceMin,
     priceMax: priceMax,
+    sort,
   });
 
   return (
@@ -47,7 +57,24 @@ const Catalog = () => {
           <SidebarCatalog />
           <section>
             <h1 className="-mt-4 mb-6 text-title leading-none">Каталог</h1>
-            <Filters />
+
+            <div className="flex flex-wrap justify-between gap-4">
+              <Filters />
+              <Select
+                className="ml-auto"
+                value={sort}
+                onValueChange={(value) => setSort(value)}
+              >
+                <SelectTrigger className="w-fit min-w-[150px]">
+                  <SelectValue placeholder="Сортувати" />
+                </SelectTrigger>
+                <SelectContent sideOffset={16}>
+                  <SelectItem value="_createdAt_ASC">По новизні</SelectItem>
+                  <SelectItem value="price_ASC">Від дешевших</SelectItem>
+                  <SelectItem value="price_DESC">Від дорогих</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
             <div className="mb-16 mt-6 grid gap-[30px] max-md:justify-items-center sm:grid-cols-[repeat(auto-fill,_minmax(240px,_1fr))] lg:grid-cols-3">
               {loading ? (
                 <>

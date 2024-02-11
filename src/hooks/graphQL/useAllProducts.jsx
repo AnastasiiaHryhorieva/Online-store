@@ -6,8 +6,10 @@ const query = `
     $serchTerm: String!,
     $priceMin: IntType,
     $priceMax: IntType,
+    $sort: [ProductModelOrderBy],
   ) {
     allProducts(
+      orderBy: $sort,
       filter: {
         title: {
           matches: { pattern: $serchTerm }
@@ -30,13 +32,10 @@ const query = `
       slug
       image {
         responsiveImage {
-          alt
-          base64
-          bgColor
-          height
-          sizes
           src
           width
+          height
+          alt
         }
       }
       colors {
@@ -55,13 +54,14 @@ const query = `
   }
 `;
 
-const useAllProducts = ({ category, serchTerm, priceMin, priceMax }) => {
+const useAllProducts = ({ category, serchTerm, priceMin, priceMax, sort }) => {
   const { loading, error, data } = useQuery(query, {
     variables: {
       category,
       serchTerm,
       priceMin,
       priceMax,
+      sort,
     },
   });
 
