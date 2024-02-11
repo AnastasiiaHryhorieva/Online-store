@@ -13,6 +13,10 @@ const getBreadcrumbLabel = (pathname) => {
       label = "Каталог";
       break;
     }
+    case "/catalog/bestsellers": {
+      label = "Бестселери";
+      break;
+    }
     case "/account": {
       label = "Особистий кабінет";
       break;

@@ -17,7 +17,10 @@ const MainGoods = ({ title, category }) => {
               {title}
             </span>
           </div>
-          <NavLink className="group flex items-center text-base" to="#">
+          <NavLink
+            className="group flex items-center text-base"
+            to={`catalog/${category}`}
+          >
             Дивитись всі
             <Icon
               className="ml-[10px] duration-200 group-hover:translate-x-1"
