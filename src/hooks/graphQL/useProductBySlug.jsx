@@ -20,14 +20,10 @@ const query = `
       slug
       image {
         responsiveImage {
-          alt
-          base64
-          height
-          sizes
           src
-          title
           width
-          bgColor
+          height
+          alt
         }
       }
       colors {

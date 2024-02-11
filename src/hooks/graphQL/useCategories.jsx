@@ -13,11 +13,7 @@ const categoriesMain = `query MyQuery {
           src
           width
           height
-          title
           alt
-          sizes
-          base64
-          bgColor
         }
       }
     }

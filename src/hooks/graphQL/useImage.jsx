@@ -14,11 +14,7 @@ const image = `
         src
         width
         height
-        title
         alt
-        sizes
-        base64
-        bgColor
       }
     }
   }
