@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 
+import { buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/common/input/input";
 
 const PersonalInformation = () => {
@@ -75,7 +76,13 @@ const PersonalInformation = () => {
             errors={personalForm.formState.errors}
           />
         </div>
-        <input className="form-submit mt-8" type="submit" value="Зберегти" />
+        <input
+          className={
+            buttonVariants({ variant: "outline", size: "lg" }) + " mt-8 w-full"
+          }
+          type="submit"
+          value="Зберегти"
+        />
       </form>
 
       <h2 className="mb-6 text-title">Адреса доставки</h2>
@@ -117,7 +124,13 @@ const PersonalInformation = () => {
             errors={addressForm.formState.errors}
           />
         </div>
-        <input className="form-submit mt-8" type="submit" value="Зберегти" />
+        <input
+          className={
+            buttonVariants({ variant: "outline", size: "lg" }) + " mt-8 w-full"
+          }
+          type="submit"
+          value="Зберегти"
+        />
       </form>
     </div>
   );

@@ -1,3 +1,4 @@
+import { buttonVariants } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 
 // TODO: create input component with react-hook-form
@@ -44,7 +45,14 @@ const Subscription = () => {
               </span>
             )}
           </div>
-          <input className="button" type="submit" value="Підписатися" />
+          <input
+            className={
+              buttonVariants({ variant: "outlineReverse" }) +
+              " px-8 text-[20px]"
+            }
+            type="submit"
+            value="Підписатися"
+          />
         </form>
       </div>
     </section>

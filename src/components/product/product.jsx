@@ -24,6 +24,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
 const Product = () => {
   const { slug } = useParams();
@@ -264,11 +265,14 @@ const Product = () => {
             )}
 
             <div className="flex items-center gap-3">
-              {/* TODO: fix button styles */}
-              <button className="button rounded-[3px]" type="button">
+              <Button
+                className="rounded-[3px] text-[18px]"
+                variant="outlineReverse"
+                type="button"
+              >
                 Додати до Кошика
-              </button>
-              <button type="button">
+              </Button>
+              <button type="button" aria-label="Додоти до улюбленого">
                 <Icon
                   className="fill-transparent duration-200 hover:fill-[--red] hover:text-[--red]"
                   name="heart"

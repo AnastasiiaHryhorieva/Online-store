@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 
+import { buttonVariants } from "@/components/ui/button";
+
 const Collection = () => {
   return (
     <section className="bg-collection-bg bg-cover bg-center bg-no-repeat pb-[35px] pt-[270px] sm:pt-[320px] md:pt-[400px]">
@@ -8,7 +10,10 @@ const Collection = () => {
           SS'2023 Collection
         </h1>
         <NavLink
-          className="button min-w-[226px] text-center hover:bg-transparent focus-visible:bg-transparent"
+          className={
+            buttonVariants({ variant: "outlineReverse" }) +
+            " min-w-[226px] text-base_l"
+          }
           to="/catalog"
         >
           Переглянути

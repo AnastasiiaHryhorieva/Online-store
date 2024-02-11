@@ -10,7 +10,7 @@
     --pink: #ff32ea;
 
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -18,8 +18,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -84,24 +84,6 @@
   @apply box-content w-auto max-w-full px-4 md:px-8 lg:max-w-[1140px];
 }
 
-.button {
-  color: #fff;
-  font-size: 20px;
-  line-height: 1;
-  height: 50px;
-  padding: 12px 32px;
-  background-color: #000;
-  border: 1px solid #000;
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-.button:hover,
-.button:focus-visible {
-  color: #000;
-  background-color: #fff;
-}
-
 .link-hover {
   position: relative;
   white-space: nowrap;
@@ -122,22 +104,6 @@
 .link-hover:hover::before {
   width: 100%;
   left: 0;
-}
-
-.form-submit {
-  color: #000;
-  font-size: 16px;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #000;
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-.form-submit:hover,
-.form-submit:focus-visible {
-  color: #fff;
-  background-color: #000;
 }
 
 .text-stroke-gray {

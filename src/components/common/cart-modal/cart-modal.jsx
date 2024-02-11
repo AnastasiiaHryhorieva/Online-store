@@ -9,6 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "@/components/ui/button";
 
 const CartModal = () => {
   return (
@@ -73,12 +74,13 @@ const CartModal = () => {
           </div>
 
           <SheetClose asChild>
-            <button
-              className="mt-6 w-full border border-[--green] bg-[--green] px-4 py-3 text-base_l uppercase text-white duration-200 hover:bg-transparent hover:text-[--green]"
+            <Button
+              className="mt-6 w-full border-[--green] bg-[--green] text-[20px] uppercase text-white  hover:text-[--green]"
+              variant="outlineReverse"
               type="button"
             >
               Оплатити замовлення
-            </button>
+            </Button>
           </SheetClose>
         </div>
       </SheetContent>
