@@ -9,7 +9,7 @@ const Collection = () => {
         </h1>
         <NavLink
           className="button min-w-[226px] text-center hover:bg-transparent focus-visible:bg-transparent"
-          to="#"
+          to="/catalog"
         >
           Переглянути
         </NavLink>
