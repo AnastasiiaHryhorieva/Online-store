@@ -1,4 +1,4 @@
-export const filters = [
+const filters = [
   {
     id: "size",
     title: "Розмір",
@@ -40,14 +40,6 @@ export const filters = [
       { value: "fall", title: "Осінь" },
     ],
   },
-  // {
-  //   id: "sort",
-  //   title: "Сортувати",
-  //   options: [
-  //     { value: "rate", title: "За рейтингом" },
-  //     { value: "new", title: "По новизні" },
-  //     { value: "asc", title: "Від дешевших" },
-  //     { value: "desc", title: "Від дорогих" },
-  //   ],
-  // },
 ];
+
+export { filters };

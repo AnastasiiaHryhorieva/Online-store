@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-import { useProductsByCategory } from "@/hooks/graphQL/useProductsByCategory";
+import { useProductsByCategory } from "@/hooks/graphql/useProductsByCategory";
 import { Card } from "@/components/common/card/card";
 import { Icon } from "@/components/common/icon/icon";
 

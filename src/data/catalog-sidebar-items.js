@@ -1,4 +1,4 @@
-export const catalogSidebarItems = [
+const catalogSidebarItems = [
   {
     url: "/new",
     category: "Новинки",
@@ -48,3 +48,5 @@ export const catalogSidebarItems = [
     subcategories: [],
   },
 ];
+
+export { catalogSidebarItems };

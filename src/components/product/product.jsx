@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Image } from "react-datocms";
 
-import { useProductBySlug } from "@/hooks/graphQL/useProductBySlug";
+import { useProductBySlug } from "@/hooks/graphql/useProductBySlug";
 import { cn } from "@/lib/utils";
 import { getSizeLabel } from "@/helpers/helpers";
 import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";

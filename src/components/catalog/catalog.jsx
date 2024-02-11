@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
-import { useAllProducts } from "@/hooks/graphQL/useAllProducts";
+import { useAllProducts } from "@/hooks/graphql/useAllProducts";
 import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";
 import { Subscription } from "@/components/common/subscription/subscription";
 import { SidebarCatalog } from "@/components/common/sidebar-catalog/sidebar-catalog";

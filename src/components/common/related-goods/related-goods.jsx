@@ -1,4 +1,4 @@
-import { useProductsByCategory } from "@/hooks/graphQL/useProductsByCategory";
+import { useProductsByCategory } from "@/hooks/graphql/useProductsByCategory";
 import { Card } from "@/components/common/card/card";
 
 const RelatedGoods = ({ category }) => {

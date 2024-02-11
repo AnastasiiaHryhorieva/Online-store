@@ -1,4 +1,4 @@
-import useImage from "@/hooks/graphQL/useImage";
+import useImage from "@/hooks/graphql/useImage";
 
 const Philosophy = () => {
   const girlImage = useImage("girl_orange");

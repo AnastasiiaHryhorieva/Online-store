@@ -2,7 +2,8 @@ import { navigationItems } from "@/data/navigation-items";
 import { catalogSidebarItems } from "@/data/catalog-sidebar-items";
 
 const getBreadcrumbLabel = (pathname) => {
-  let label = "unknown";
+  // By default, we take the last segment of the URL
+  let label = pathname.split("/").at(-1);
 
   switch (pathname) {
     case "/": {
