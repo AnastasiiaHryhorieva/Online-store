@@ -1,8 +1,12 @@
-import useImage from "@/hooks/graphql/useImage";
+import { Image } from "react-datocms/image";
+
+import { useImageByTitle } from "@/hooks/graphql/useImageByTitle";
 
 const Philosophy = () => {
-  const girlImage = useImage("girl_orange");
-  const flowersImage = useImage("white_red_pink_flowers");
+  const { loading: flowersLoading, data: flowers } =
+    useImageByTitle("philosophy left");
+  const { loading: girlLoading, data: girl } =
+    useImageByTitle("philosophy right");
 
   return (
     <section className="my-[75px] md:my-[150px]">
@@ -15,18 +19,12 @@ const Philosophy = () => {
             неперевершена. Жити своєю роботою, любити її до кінчиків пальців,
             такий наш підхід.
           </p>
-          <img
-            className="mt-[40px]"
-            src={flowersImage?.src}
-            alt={flowersImage?.alt}
-          />
+          {!flowersLoading && <Image className="mt-10" data={flowers} />}
         </div>
         <div className="flex flex-col gap-y-10">
-          <img
-            className="mb-auto max-md:order-1"
-            src={girlImage?.src}
-            alt={girlImage?.alt}
-          />
+          {!girlLoading && (
+            <Image className="mb-auto max-md:order-1" data={girl} />
+          )}
           <p className="max-w-[500px] text-base">
             Майже всі речі з наших колекцій легко поєднуються між собою за
             стилем та кольоровою гамою. Ви можете міксувати різні силуети і
