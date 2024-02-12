@@ -1,4 +1,4 @@
-import { useAllCategories } from "@/hooks/graphql/useAllCategories";
+import { useAllCategories } from "@/hooks/graphQL/useAllCategories";
 import { CategoryCard } from "@/components/common/category-card/category-card";
 import { Skeleton } from "@/components/ui/skeleton";
 

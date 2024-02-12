@@ -1,6 +1,6 @@
 import { Image } from "react-datocms/image";
 
-import { useImageByTitle } from "@/hooks/graphql/useImageByTitle";
+import { useImageByTitle } from "@/hooks/graphQL/useImageByTitle";
 
 const Philosophy = () => {
   const { loading: flowersLoading, data: flowers } =
