@@ -237,9 +237,8 @@ const Product = () => {
                     const isWhiteColor = color.color.hex === "#FFFFFF";
 
                     return (
-                      <div>
+                      <div key={index}>
                         <RadioGroupItem
-                          key={index}
                           id={color.color.hex}
                           className="peer hidden"
                           value={color.color.hex}

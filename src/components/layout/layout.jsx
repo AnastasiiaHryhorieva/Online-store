@@ -12,7 +12,7 @@ const Layout = () => {
       </main>
       <Footer />
       <ScrollRestoration
-        getKey={(location, matches) => {
+        getKey={(location) => {
           return location.pathname.includes("/catalog")
             ? // does not scroll up when selecting filters
               location.pathname

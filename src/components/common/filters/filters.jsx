@@ -63,7 +63,7 @@ const Filters = () => {
                 Boolean(count) && "bg-black text-white",
               )}
               type="button"
-              onClick={(e) => handleToggleFilter(index)}
+              onClick={() => handleToggleFilter(index)}
             >
               <span>{filter.title}</span>&nbsp;
               {Boolean(count) && <span>({count})</span>}
@@ -108,7 +108,7 @@ const Filters = () => {
                 key={option.value}
                 className="h-10 rounded-none border border-black/30 px-4 py-2 text-xs hover:bg-transparent hover:text-current data-[state=on]:bg-black data-[state=on]:text-white"
                 value={option.value}
-                onClick={(e) =>
+                onClick={() =>
                   handleSearchParams(filters[activeFilter].id, option.value)
                 }
               >
