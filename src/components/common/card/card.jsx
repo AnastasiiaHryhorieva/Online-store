@@ -20,9 +20,8 @@ const Card = ({
   const hiddenColorsLength = colors.length - colorsToShow;
 
   return (
-    <div>
+    <div className="w-full">
       <div className="relative">
-        {/* TODO: url  */}
         <NavLink className="block" to={`/product/${slug}`}>
           <Image className="!max-w-full" data={image} />
         </NavLink>
