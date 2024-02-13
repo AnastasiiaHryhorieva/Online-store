@@ -9,6 +9,7 @@ import { Orders } from "@/components/account/orders/orders";
 import { Favorites } from "@/components/account/favorites/favorites";
 import { Error } from "@/components/error/error";
 import { Product } from "@/components/product/product";
+import { Auth } from "@/components/auth/auth";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,14 @@ const router = createBrowserRouter([
             element: <Favorites />,
           },
         ],
+      },
+      {
+        path: "sign-in",
+        element: <Auth />,
+      },
+      {
+        path: "sign-up",
+        element: <Auth />,
       },
     ],
   },
