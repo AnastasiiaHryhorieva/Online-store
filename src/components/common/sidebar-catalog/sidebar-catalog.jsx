@@ -8,9 +8,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const SidebarCatalog = () => {
+const SidebarCatalog = ({ className }) => {
   return (
-    <aside>
+    <aside className={className}>
       <Accordion className="grid gap-4" type="multiple">
         {catalogSidebarItems.map((item, index) => (
           <AccordionItem key={index} value={"item-" + index}>
