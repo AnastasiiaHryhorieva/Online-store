@@ -4,6 +4,21 @@ import { cn } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";
 
 const Account = () => {
+  const sidebarNavigationItems = [
+    {
+      title: "Особисті дані",
+      href: "/account/personal-information",
+    },
+    {
+      title: "Мої замовлення",
+      href: "/account/orders",
+    },
+    {
+      title: "Улюблені товари",
+      href: "/account/favorites",
+    },
+  ];
+
   return (
     <section className="pb-16 pt-4">
       <div className="container">
@@ -13,20 +28,7 @@ const Account = () => {
           <aside className="mt-5">
             <nav>
               <ul className="space-y-4">
-                {[
-                  {
-                    title: "Особисті дані",
-                    href: "/account/personal-information",
-                  },
-                  {
-                    title: "Мої замовлення",
-                    href: "/account/orders",
-                  },
-                  {
-                    title: "Улюблені товари",
-                    href: "/account/favorites",
-                  },
-                ].map((item) => (
+                {sidebarNavigationItems.map((item) => (
                   <li key={item.title}>
                     <NavLink
                       className={({ isActive }) =>

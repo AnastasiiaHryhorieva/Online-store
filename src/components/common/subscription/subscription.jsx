@@ -1,15 +1,22 @@
-import { buttonVariants } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-// TODO: create input component with react-hook-form
+import { subscriptionSchema } from "@/lib/validations/subscription";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+
 const Subscription = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const form = useForm({
+    resolver: zodResolver(subscriptionSchema),
     defaultValues: {
-      subscription: "",
+      email: "",
     },
   });
 
@@ -23,37 +30,37 @@ const Subscription = () => {
         <p className="max-w-[430px] text-base uppercase max-md:text-center">
           Підпишись на розсилку та отримай 10% знижки на наступне замовлення
         </p>
-        <form
-          className="ml-auto flex w-full max-w-[560px]"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <div className="relative">
-            <input
-              className="h-[50px] w-full border border-r-0 px-6 py-3 outline-none duration-200 hover:border-black focus-visible:border-black"
-              placeholder="example@gmail.com"
-              {...register("subscription", {
-                required: "Email is required",
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "Please enter a valid email address.",
-                },
-              })}
+        <Form {...form}>
+          <form
+            className="ml-auto flex w-full max-w-[560px]"
+            onSubmit={form.handleSubmit(onSubmit)}
+          >
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem className="relative w-full">
+                  <FormControl>
+                    <Input
+                      className="h-[50px] border-r-0 outline-none"
+                      type="email"
+                      placeholder="example@gmail.com"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage className="absolute left-0 top-full text-xs leading-none" />
+                </FormItem>
+              )}
             />
-            {errors.subscription && (
-              <span className="absolute left-0 top-full text-xs leading-none text-[red]">
-                {errors.subscription.message}
-              </span>
-            )}
-          </div>
-          <input
-            className={
-              buttonVariants({ variant: "outlineReverse" }) +
-              " px-8 text-[20px]"
-            }
-            type="submit"
-            value="Підписатися"
-          />
-        </form>
+            <Button
+              className="px-8 text-[20px]"
+              type="submit"
+              variant="outlineReverse"
+            >
+              Підписатися
+            </Button>
+          </form>
+        </Form>
       </div>
     </section>
   );

@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { EyeIcon, EyeOffIcon } from "lucide-react";
 
-import { signInSchema } from "@/lib/validations/auth/auth";
+import { signInSchema } from "@/lib/validations/auth";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -16,8 +14,6 @@ import {
 import { Input } from "@/components/ui/input";
 
 const SignIn = () => {
-  const [showPassword, setShowPassword] = useState(false);
-
   const form = useForm({
     resolver: zodResolver(signInSchema),
     defaultValues: {
@@ -25,8 +21,6 @@ const SignIn = () => {
       password: "",
     },
   });
-
-  const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -61,27 +55,14 @@ const SignIn = () => {
             control={form.control}
             name="password"
             render={({ field }) => (
-              <FormItem className="relative">
+              <FormItem>
                 <FormControl>
-                  <>
-                    <Input
-                      className="h-[50px] rounded-none border border-black px-4"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Пароль"
-                      {...field}
-                    />
-                    <button
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-current"
-                      type="button"
-                      onClick={handleTogglePassword}
-                    >
-                      {showPassword ? (
-                        <EyeOffIcon aria-label="Сховати пароль" />
-                      ) : (
-                        <EyeIcon aria-label="Показати пароль" />
-                      )}
-                    </button>
-                  </>
+                  <Input
+                    className="h-[50px] rounded-none border border-black px-4"
+                    type="password"
+                    placeholder="Пароль"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
