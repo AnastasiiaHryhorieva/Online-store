@@ -54,7 +54,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="link-hover text-base leading-[normal]"
-                    to="/suits_bodysuits"
+                    to="catalog/suits_bodysuits"
                   >
                     Костюми та боді
                   </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="link-hover text-base leading-[normal]"
-                    to="/outerwear"
+                    to="catalog/outerwear"
                   >
                     Верхній одяг
                   </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="link-hover text-base leading-[normal]"
-                    to="/undercoat"
+                    to="catalog/undercoat"
                   >
                     Нижній одяг
                   </Link>
@@ -78,7 +78,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="link-hover text-base leading-[normal]"
-                    to="/new"
+                    to="/catalog/new"
                   >
                     Новинки
                   </Link>
@@ -86,7 +86,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="link-hover text-base leading-[normal]"
-                    to="/dresses"
+                    to="/catalog/dresses"
                   >
                     Сукні
                   </Link>
@@ -101,7 +101,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="link-hover text-base leading-[normal]"
-                    to="#"
+                    to="/account/orders"
                   >
                     Доставка та оплата
                   </Link>
@@ -109,7 +109,7 @@ const Footer = () => {
                 <li>
                   <Link
                     className="link-hover text-base leading-[normal]"
-                    to="#"
+                    to="/sign-in"
                   >
                     Вхід/Реєстрація
                   </Link>
