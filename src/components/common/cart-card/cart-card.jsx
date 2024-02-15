@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import { getDiscountPrice } from "@/helpers/helpers";
 import { Icon } from "@/components/common/icon/icon";
 import { Counter } from "@/components/common/counter/counter";
 
 // TODO: img, color title
 const CartCard = ({ img, title, price, discount, isNew, color, size }) => {
   const [count, setCount] = useState(1);
-  const discountPrice = price - price * (discount / 100);
+  const discountPrice = getDiscountPrice(price, discount);
 
   return (
     <div className="flex gap-4">

@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { Image } from "react-datocms";
 
 import { cn } from "@/lib/utils";
+import { getDiscountPrice } from "@/helpers/helpers";
 import { Icon } from "@/components/common/icon/icon";
 
 const Card = ({
@@ -15,7 +16,7 @@ const Card = ({
   isAvailable,
   showAvailability,
 }) => {
-  const discountPrice = price - price * (discount / 100);
+  const discountPrice = getDiscountPrice(price, discount);
   const colorsToShow = 3;
   const hiddenColorsLength = colors.length - colorsToShow;
 

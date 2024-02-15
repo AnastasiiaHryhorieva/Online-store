@@ -4,7 +4,7 @@ import { Image } from "react-datocms";
 
 import { useProductBySlug } from "@/hooks/graphQL/useProductBySlug";
 import { cn } from "@/lib/utils";
-import { getSizeLabel } from "@/helpers/helpers";
+import { getDiscountPrice, getSizeLabel } from "@/helpers/helpers";
 import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";
 import { Icon } from "@/components/common/icon/icon";
 import { Spinner } from "@/components/common/spinner/spinner";
@@ -66,9 +66,7 @@ const Product = () => {
     );
   }
 
-  // TODO: change approach for discount price
-  const discountPrice =
-    product.price - product.price * (product.discount / 100);
+  const discountPrice = getDiscountPrice(product.price, product.discount);
   const productSizes = Object.keys(product.sizes);
 
   return (
