@@ -32,22 +32,27 @@ const Filters = () => {
 
   const handleClearFilters = () => {
     setShowFilterOptions(false);
-    setSearchParams({});
+    setSearchParams({}, { preventScrollReset: true });
   };
 
   const handleSearchParams = (key, value) => {
     if (searchParams.has(key, value)) {
       searchParams.delete(key, value);
-      setSearchParams(searchParams);
+      setSearchParams(searchParams, { preventScrollReset: true });
       return;
     }
 
+    // reset pagination
+    if (searchParams.has("page")) {
+      searchParams.delete("page");
+    }
+
     searchParams.append(key, value);
-    setSearchParams(searchParams);
+    setSearchParams(searchParams, { preventScrollReset: true });
   };
 
   return (
-    <div className="">
+    <div>
       <div className="flex w-full flex-wrap gap-4">
         <div className="flex flex-grow flex-wrap gap-4">
           {filters.map((filter, index) => {
@@ -92,7 +97,7 @@ const Filters = () => {
             value={searchParams.get("sort") || ""}
             onValueChange={(value) => {
               searchParams.set("sort", value);
-              setSearchParams(searchParams);
+              setSearchParams(searchParams, { preventScrollReset: true });
             }}
           >
             <SelectTrigger className="w-[150px]">

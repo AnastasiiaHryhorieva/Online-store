@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useRef } from "react";
+import { useLocation, useParams, useSearchParams } from "react-router-dom";
 
+import { getBreadcrumbLabel } from "@/helpers/helpers";
 import { useAllProducts } from "@/hooks/graphQL/useAllProducts";
 import { Breadcrumbs } from "@/components/common/breadcrumbs/breadcrumbs";
 import { Subscription } from "@/components/common/subscription/subscription";
@@ -8,16 +9,31 @@ import { SidebarCatalog } from "@/components/common/sidebar-catalog/sidebar-cata
 import { Card } from "@/components/common/card/card";
 import { Filters } from "@/components/common/filters/filters";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
 const Catalog = () => {
+  const ref = useRef(null);
   const params = useParams();
-  const category = params["category"];
-  const skeletons = Array(1, 2, 3, 4, 5, 6, 7, 8, 9);
+  const { pathname } = useLocation();
+  const category = params["category"] ?? undefined;
+  const skeletons = Array(1, 2, 3, 4, 5, 6);
 
-  const [searchParams] = useSearchParams();
-  const searchTerm = searchParams.get("q");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchTerm = searchParams.get("q") ?? "";
   const price = searchParams.getAll("price");
   const sort = searchParams.get("sort");
+
+  const page = parseInt(searchParams.get("page") ?? 1);
+  const productsPerPage = 20;
+  const skipNumberOfProducts = page === 1 ? 0 : (page - 1) * productsPerPage;
 
   // parse price searchParams
   const priceRange = price
@@ -31,16 +47,67 @@ const Catalog = () => {
     })
     .sort((a, b) => a - b);
 
-  const priceMin = priceRange[0];
-  const priceMax = priceRange.length > 1 ? priceRange.at(-1) : undefined;
+  let priceMin;
+  let priceMax;
 
-  const { loading, data: products } = useAllProducts({
-    serchTerm: searchTerm || "",
-    category: category || undefined,
-    priceMin: priceMin,
-    priceMax: priceMax,
+  if (priceRange.includes(2000) && priceRange.length > 1) {
+    // from min price to infinity
+    priceMin = priceRange[0];
+    priceMax = undefined;
+  } else {
+    // from min price to max price
+    priceMin = priceRange[0];
+    priceMax = priceRange.length > 1 ? priceRange.at(-1) : undefined;
+  }
+
+  const { loading, data } = useAllProducts({
+    searchTerm,
+    category,
+    priceMin,
+    priceMax,
     sort,
+    first: productsPerPage,
+    skip: skipNumberOfProducts,
   });
+
+  const pageOffset = 2; // number of pages before and after current page
+  const totalPages = Math.ceil(data.productsTotalCount / productsPerPage);
+  const hasPagination = totalPages > 1;
+  const hasNextPage = page < totalPages;
+  const hasPrevPage = page > 1;
+  const showFirstPage = page > pageOffset + 1;
+  const showLastPage = page < totalPages - pageOffset;
+  const showNextEllipsis = page < totalPages - pageOffset - 1;
+  const showPrevEllipsis = page > pageOffset + 2;
+
+  const handlePageChange = (e, pageIndex) => {
+    e.preventDefault();
+
+    searchParams.set("page", pageIndex);
+    setSearchParams(searchParams, { preventScrollReset: true });
+
+    ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const getPaginationItems = () => {
+    const items = [page];
+
+    // pages before current
+    for (let i = 1; i <= pageOffset; i++) {
+      if (page - i >= 1) {
+        items.unshift(page - i);
+      }
+    }
+
+    // pages after current
+    for (let i = 1; i <= pageOffset; i++) {
+      if (page + i <= totalPages) {
+        items.push(page + i);
+      }
+    }
+
+    return items;
+  };
 
   return (
     <section>
@@ -49,8 +116,9 @@ const Catalog = () => {
         <div className="grid gap-16 md:grid-cols-[170px_1fr]">
           <SidebarCatalog className="max-md:hidden" />
           <section>
-            <h1 className="-mt-4 mb-6 text-title leading-none">Каталог</h1>
-
+            <h1 ref={ref} className="-mt-4 mb-6 text-title leading-none">
+              {getBreadcrumbLabel(pathname)}
+            </h1>
             <Filters />
             <div className="mb-16 mt-6 grid gap-[30px] max-md:justify-items-center sm:grid-cols-[repeat(auto-fill,_minmax(240px,_1fr))] lg:grid-cols-3">
               {loading ? (
@@ -75,7 +143,7 @@ const Catalog = () => {
                 </>
               ) : (
                 <>
-                  {products.map((product) => (
+                  {data.products.map((product) => (
                     <Card
                       key={product.id}
                       title={product.title}
@@ -90,6 +158,74 @@ const Catalog = () => {
                 </>
               )}
             </div>
+
+            {hasPagination && (
+              <Pagination>
+                <PaginationContent>
+                  {hasPrevPage && (
+                    <PaginationItem>
+                      <PaginationPrevious
+                        href={`?page=${page - 1}`}
+                        onClick={(e) => handlePageChange(e, page - 1)}
+                      />
+                    </PaginationItem>
+                  )}
+                  {showFirstPage && (
+                    <PaginationItem className="max-md:hidden">
+                      <PaginationLink
+                        href="?page=1"
+                        onClick={(e) => handlePageChange(e, 1)}
+                      >
+                        1
+                      </PaginationLink>
+                    </PaginationItem>
+                  )}
+                  {showPrevEllipsis && (
+                    <PaginationItem className="max-md:hidden">
+                      <PaginationEllipsis />
+                    </PaginationItem>
+                  )}
+
+                  {getPaginationItems().map((item) => (
+                    <PaginationItem key={item}>
+                      <PaginationLink
+                        href={`?page=${page}`}
+                        isActive={item === page}
+                        aria-label={`Go to ${page} page`}
+                        onClick={(e) => handlePageChange(e, item)}
+                      >
+                        {item}
+                      </PaginationLink>
+                    </PaginationItem>
+                  ))}
+
+                  {showNextEllipsis && (
+                    <PaginationItem className="max-md:hidden">
+                      <PaginationEllipsis />
+                    </PaginationItem>
+                  )}
+                  {showLastPage && (
+                    <PaginationItem className="max-md:hidden">
+                      <PaginationLink
+                        href={`?page=${totalPages}`}
+                        aria-label={`Go to ${totalPages} page`}
+                        onClick={(e) => handlePageChange(e, totalPages)}
+                      >
+                        {totalPages}
+                      </PaginationLink>
+                    </PaginationItem>
+                  )}
+                  {hasNextPage && (
+                    <PaginationItem>
+                      <PaginationNext
+                        href={`?page=${page + 1}`}
+                        onClick={(e) => handlePageChange(e, page + 1)}
+                      />
+                    </PaginationItem>
+                  )}
+                </PaginationContent>
+              </Pagination>
+            )}
           </section>
         </div>
       </div>

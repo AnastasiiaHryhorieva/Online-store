@@ -2,23 +2,43 @@ import { useQuery } from "graphql-hooks";
 
 const query = `
   query getAllProducts(
+    $searchTerm: String!,
     $category: String,
-    $serchTerm: String!,
     $priceMin: IntType,
     $priceMax: IntType,
     $sort: [ProductModelOrderBy],
+    $first: IntType,
+    $skip: IntType,
   ) {
-    allProducts(
-      orderBy: $sort,
+    _allProductsMeta(
       filter: {
         title: {
-          matches: { pattern: $serchTerm }
+          matches: { pattern: $searchTerm }
         },
         category: {
           eq: $category
         }
         price: {
-          gte: $priceMin,
+          gte: $priceMin
+          lte: $priceMax
+        }
+      }
+    ) {
+      count
+    }
+    allProducts(
+      first: $first,
+      skip: $skip,
+      orderBy: $sort,
+      filter: {
+        title: {
+          matches: { pattern: $searchTerm }
+        },
+        category: {
+          eq: $category
+        }
+        price: {
+          gte: $priceMin
           lte: $priceMax
         }
       }
@@ -54,18 +74,35 @@ const query = `
   }
 `;
 
-const useAllProducts = ({ category, serchTerm, priceMin, priceMax, sort }) => {
+const useAllProducts = ({
+  searchTerm,
+  category,
+  priceMin,
+  priceMax,
+  sort,
+  first,
+  skip,
+}) => {
   const { loading, error, data } = useQuery(query, {
     variables: {
       category,
-      serchTerm,
+      searchTerm,
       priceMin,
       priceMax,
       sort,
+      first,
+      skip,
     },
   });
 
-  return { loading, error, data: data?.allProducts };
+  return {
+    loading,
+    error,
+    data: {
+      products: data?.allProducts,
+      productsTotalCount: data?._allProductsMeta.count,
+    },
+  };
 };
 
 export { useAllProducts };

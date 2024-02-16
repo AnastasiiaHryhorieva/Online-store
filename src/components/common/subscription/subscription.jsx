@@ -53,7 +53,7 @@ const Subscription = () => {
               )}
             />
             <Button
-              className="px-8 text-[20px]"
+              className="z-0 px-8 text-[20px]"
               type="submit"
               variant="outlineReverse"
             >
