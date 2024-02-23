@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useLocation, useParams, useSearchParams } from "react-router-dom";
 
 import { getBreadcrumbLabel } from "@/helpers/helpers";
@@ -20,7 +19,6 @@ import {
 } from "@/components/ui/pagination";
 
 const Catalog = () => {
-  const ref = useRef(null);
   const params = useParams();
   const { pathname } = useLocation();
   const category = params["category"] ?? undefined;
@@ -32,7 +30,7 @@ const Catalog = () => {
   const sort = searchParams.get("sort");
 
   const page = parseInt(searchParams.get("page") ?? 1);
-  const productsPerPage = 20;
+  const productsPerPage = 12;
   const skipNumberOfProducts = page === 1 ? 0 : (page - 1) * productsPerPage;
 
   // parse price searchParams
@@ -84,9 +82,7 @@ const Catalog = () => {
     e.preventDefault();
 
     searchParams.set("page", pageIndex);
-    setSearchParams(searchParams, { preventScrollReset: true });
-
-    ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    setSearchParams(searchParams);
   };
 
   const getPaginationItems = () => {
@@ -116,7 +112,7 @@ const Catalog = () => {
         <div className="grid gap-16 md:grid-cols-[170px_1fr]">
           <SidebarCatalog className="max-md:hidden" />
           <section>
-            <h1 ref={ref} className="-mt-4 mb-6 text-title leading-none">
+            <h1 className="-mt-4 mb-6 text-title leading-none">
               {getBreadcrumbLabel(pathname)}
             </h1>
             <Filters />
