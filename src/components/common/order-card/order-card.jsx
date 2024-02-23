@@ -1,21 +1,34 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const OrderCard = () => {
+import { OrederStatus } from "./oreder-status/oreder-status";
+
+const OrderCard = ({ status }) => {
+  const scrollRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggleDetails = () => {
     setIsExpanded(!isExpanded);
+
+    if (isExpanded) {
+      setTimeout(() => {
+        scrollRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    }
   };
 
   return (
-    <div className="grid min-h-[160px] border border-black/10 p-4">
+    <div
+      ref={scrollRef}
+      className="grid min-h-[160px] border border-black/10 p-4"
+    >
       {!isExpanded ? (
-        <div className="flex justify-between gap-6">
+        <div className="grid grid-cols-2 justify-between gap-6">
           <div className="flex flex-col gap-1.5">
-            <span className="text-base_l font-bold text-[--green]">
-              Доставлено
-            </span>
+            <OrederStatus status={status} />
             <span className="text-xs leading-normal">
               Замовлення №1940 від 12.05.2023
             </span>
@@ -29,7 +42,7 @@ const OrderCard = () => {
               Деталі замовлення
             </button>
           </div>
-          <div className="flex flex-wrap gap-2.5">
+          <div className="grid grid-cols-2 gap-2.5 justify-self-end">
             <img
               className="h-[130px]"
               src="/img/girl_in_grey.webp"
@@ -45,9 +58,7 @@ const OrderCard = () => {
       ) : (
         <div className="overflow-x-auto">
           <div className="mb-10 flex flex-col gap-1.5">
-            <span className="text-base_l font-bold text-[--green]">
-              Доставлено
-            </span>
+            <OrederStatus status={status} />
             <span className="text-xs leading-normal">Отримано 15.05.2023</span>
             <span className="text-xs leading-normal">Замовлення №1940</span>
             <span className="text-xs leading-normal">2 товари</span>

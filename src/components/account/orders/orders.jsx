@@ -5,7 +5,17 @@ const Orders = () => {
     <div>
       <h2 className="mb-6 text-title">Мої замовлення</h2>
 
-      <OrderCard />
+      <ul className="grid gap-4">
+        <li>
+          <OrderCard status="pending" />
+        </li>
+        <li>
+          <OrderCard status="delivered" />
+        </li>
+        <li>
+          <OrderCard status="rejected" />
+        </li>
+      </ul>
     </div>
   );
 };
