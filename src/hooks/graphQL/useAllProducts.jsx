@@ -9,6 +9,11 @@ const query = `
     $sort: [ProductModelOrderBy],
     $first: IntType,
     $skip: IntType,
+    $xs: BooleanType,
+    $s: BooleanType,
+    $m: BooleanType,
+    $l: BooleanType,
+    $xl: BooleanType,
   ) {
     _allProductsMeta(
       filter: {
@@ -17,11 +22,22 @@ const query = `
         },
         category: {
           eq: $category
-        }
+        },
         price: {
           gte: $priceMin
           lte: $priceMax
-        }
+        },
+        sizes: {
+          any: {
+            size: {
+              xs: { eq: $xs },
+              small: { eq: $s },
+              medium: { eq: $m },
+              large: { eq: $l },
+              xl: { eq: $xl },
+            }
+          }
+        },
       }
     ) {
       count
@@ -36,11 +52,22 @@ const query = `
         },
         category: {
           eq: $category
-        }
+        },
         price: {
           gte: $priceMin
           lte: $priceMax
-        }
+        },
+        sizes: {
+          any: {
+            size: {
+              xs: { eq: $xs },
+              small: { eq: $s },
+              medium: { eq: $m },
+              large: { eq: $l },
+              xl: { eq: $xl },
+            }
+          }
+        },
       }
     ) {
       id
@@ -82,6 +109,11 @@ const useAllProducts = ({
   sort,
   first,
   skip,
+  xs,
+  s,
+  m,
+  l,
+  xl,
 }) => {
   const { loading, error, data } = useQuery(query, {
     variables: {
@@ -92,6 +124,11 @@ const useAllProducts = ({
       sort,
       first,
       skip,
+      xs,
+      s,
+      m,
+      l,
+      xl,
     },
   });
 

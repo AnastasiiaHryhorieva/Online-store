@@ -28,6 +28,7 @@ const Catalog = () => {
   const searchTerm = searchParams.get("q") ?? "";
   const price = searchParams.getAll("price");
   const sort = searchParams.get("sort");
+  const sizes = searchParams.getAll("size");
 
   const page = parseInt(searchParams.get("page") ?? 1);
   const productsPerPage = 12;
@@ -66,6 +67,11 @@ const Catalog = () => {
     sort,
     first: productsPerPage,
     skip: skipNumberOfProducts,
+    xs: sizes.includes("xs") || undefined,
+    s: sizes.includes("s") || undefined,
+    m: sizes.includes("m") || undefined,
+    l: sizes.includes("l") || undefined,
+    xl: sizes.includes("xl") || undefined,
   });
 
   const pageOffset = 2; // number of pages before and after current page

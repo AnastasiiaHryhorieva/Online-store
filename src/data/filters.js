@@ -4,9 +4,9 @@ const filters = [
     title: "Розмір",
     options: [
       { value: "xs", title: "XS" },
-      { value: "small", title: "S" },
-      { value: "medium", title: "M" },
-      { value: "large", title: "L" },
+      { value: "s", title: "S" },
+      { value: "m", title: "M" },
+      { value: "l", title: "L" },
       { value: "xl", title: "XL" },
     ],
   },
