@@ -6,7 +6,9 @@ const Favorites = () => {
 
   return (
     <div>
-      <h2 className="mb-6 text-title">Улюблені товари ({products?.length})</h2>
+      <h2 className="mb-4 max-lg:font-bold lg:mb-6 lg:text-title">
+        Улюблені товари ({products?.length})
+      </h2>
 
       <ul className="grid grid-cols-[repeat(auto-fill,_minmax(240px,_1fr))] gap-[30px] lg:grid-cols-3">
         {products?.map((product) => (

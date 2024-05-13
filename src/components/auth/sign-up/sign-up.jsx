@@ -31,8 +31,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="m-auto w-full p-6 text-[18px] font-semibold shadow-[0_0_50px_0_rgba(0,0,0,0.1)] sm:max-w-[640px] sm:px-[65px] sm:pb-[58px] sm:pt-12">
-      <h1 className="mb-8 text-center text-[24px] uppercase">Реєстрація</h1>
+    <div className="m-auto w-full p-6 text-sm shadow-[0_0_50px_0_rgba(0,0,0,0.1)] sm:max-w-[640px] sm:px-[65px] sm:pb-[58px] sm:pt-12">
+      <h1 className="mb-8 text-center text-title uppercase">Реєстрація</h1>
 
       <Form {...form}>
         <form
@@ -45,18 +45,18 @@ const SignUp = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="mb-1.5 inline-block text-base leading-tight">
+                  <FormLabel className="mb-2 inline-block leading-tight">
                     Ім’я*
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[56px] border-[#B0AAAA] text-[20px] placeholder:text-[#AFB1B8]"
+                      className="h-[60px] border-[#B0AAAA] outline-none transition-all placeholder:text-[#AFB1B8] focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="text"
                       placeholder="Ваше ім’я"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className="text-[18px]" />
+                  <FormMessage className="mt-1 text-xs" />
                 </FormItem>
               )}
             />
@@ -65,18 +65,18 @@ const SignUp = () => {
               name="surname"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="mb-1.5 inline-block text-base leading-tight">
+                  <FormLabel className="mb-2 inline-block leading-tight">
                     Призвіще*
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[56px] border-[#B0AAAA] text-[20px] placeholder:text-[#AFB1B8]"
+                      className="h-[60px] border-[#B0AAAA] outline-none transition-all placeholder:text-[#AFB1B8] focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="text"
                       placeholder="Ваше призвіще"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className="text-[18px]" />
+                  <FormMessage className="mt-1 text-xs" />
                 </FormItem>
               )}
             />
@@ -86,18 +86,18 @@ const SignUp = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mb-1.5 inline-block text-base leading-tight">
+                <FormLabel className="mb-2 inline-block leading-tight">
                   Введить ваш E-mail*
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="h-[56px] border-[#B0AAAA] text-[20px] placeholder:text-[#AFB1B8]"
+                    className="h-[60px] border-[#B0AAAA] outline-none transition-all placeholder:text-[#AFB1B8] focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                     type="email"
                     placeholder="Ваш емейл"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-[18px]" />
+                <FormMessage className="mt-1 text-xs" />
               </FormItem>
             )}
           />
@@ -106,18 +106,18 @@ const SignUp = () => {
             name="password"
             render={({ field }) => (
               <FormItem className="relative">
-                <FormLabel className="mb-1.5 inline-block text-base leading-tight">
+                <FormLabel className="mb-2 inline-block leading-tight">
                   Пароль* (повинен бути не менше 6 символів)
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="h-[56px] border-[#B0AAAA] text-[20px] placeholder:text-[#AFB1B8]"
+                    className="h-[60px] border-[#B0AAAA] outline-none transition-all placeholder:text-[#AFB1B8] focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                     type="password"
                     placeholder="Введить пароль"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-[18px]" />
+                <FormMessage className="mt-1 text-xs" />
               </FormItem>
             )}
           />
@@ -126,23 +126,23 @@ const SignUp = () => {
             name="confirmPassword"
             render={({ field }) => (
               <FormItem className="relative">
-                <FormLabel className="mb-1.5 inline-block text-base leading-tight">
+                <FormLabel className="mb-2 inline-block leading-tight">
                   Підтвердження пароля
                 </FormLabel>
                 <FormControl>
                   <Input
-                    className="h-[56px] border-[#B0AAAA] text-[20px] placeholder:text-[#AFB1B8]"
+                    className="h-[60px] border-[#B0AAAA] outline-none transition-all placeholder:text-[#AFB1B8] focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                     type="password"
                     placeholder="******"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-[18px]" />
+                <FormMessage className="mt-1 text-xs" />
               </FormItem>
             )}
           />
           <Button
-            className="mt-4 h-[64px] w-full text-[24px]"
+            className="mt-4 h-[60px] w-full uppercase"
             type="submit"
             variant="outlineReverse"
           >
@@ -153,7 +153,7 @@ const SignUp = () => {
 
       <div className="mt-10">
         <button
-          className="mb-5 flex h-[64px] w-full items-center justify-center gap-4 border-2 border-current text-[24px] text-[--blue]"
+          className="mb-5 flex h-[60px] w-full items-center justify-center gap-4 border border-current duration-200 hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
           type="button"
         >
           <img
@@ -164,7 +164,7 @@ const SignUp = () => {
           <span className="leading-none">Вхід через Facebook</span>
         </button>
         <button
-          className="flex h-[64px] w-full items-center justify-center gap-4 border-2 border-current text-[24px]"
+          className="flex h-[60px] w-full items-center justify-center gap-4 border border-current duration-200 hover:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
           type="button"
         >
           <img
@@ -176,8 +176,8 @@ const SignUp = () => {
         </button>
 
         <p className="mt-8 text-center">
-          Є аккаунт?
-          <NavLink className="ml-2.5 font-bold text-[--blue]" to="/sign-in">
+          Є аккаунт?{" "}
+          <NavLink className="text-[--blue]" to="/sign-in">
             Увійти
           </NavLink>
         </p>

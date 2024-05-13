@@ -19,12 +19,12 @@ const Input = React.forwardRef(({ className, type, ...props }, ref) => {
           {...props}
         />
         <button
-          className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground transition-colors hover:text-current"
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-[#595959] transition-colors hover:text-current"
           type="button"
           title={showPassword ? "Сховати пароль" : "Показати пароль"}
           onClick={() => setShowPassword(!showPassword)}
         >
-          {showPassword ? <EyeIcon /> : <EyeOffIcon />}
+          {showPassword ? <EyeIcon size={22} /> : <EyeOffIcon size={22} />}
         </button>
       </div>
     );

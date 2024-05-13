@@ -26,7 +26,7 @@ const OrderCard = ({ status }) => {
       className="grid min-h-[160px] border border-black/10 p-4"
     >
       {!isExpanded ? (
-        <div className="grid grid-cols-2 justify-between gap-6">
+        <div className="flex flex-wrap justify-between gap-6">
           <div className="flex flex-col gap-1.5">
             <OrederStatus status={status} />
             <span className="text-xs leading-normal">
@@ -63,76 +63,65 @@ const OrderCard = ({ status }) => {
             <span className="text-xs leading-normal">Замовлення №1940</span>
             <span className="text-xs leading-normal">2 товари</span>
           </div>
-          <table className="w-full">
-            <thead>
-              <tr className="text-left">
-                <th className="p-0 pr-2 font-normal">Товар</th>
-                <th className="p-0 pr-2 font-normal">Назва</th>
-                <th className="p-0 pr-2 font-normal">Розмір</th>
-                <th className="p-0 pr-2 font-normal">Колір</th>
-                <th className="p-0 font-normal">Ціна</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="text-xs">
-                <td className="p-0 py-6 pr-2">
-                  <NavLink className="inline-block" to="#">
-                    <img
-                      className="h-[130px]"
-                      src="/img/girl_in_grey.webp"
-                      alt="Оверсайз жакет CLASSY"
-                    />
-                  </NavLink>
-                </td>
-                <td className="p-0 py-6 pr-2">
+
+          <div>
+            <h3 className="mb-4 font-bold">Товар</h3>
+
+            <ul className="space-y-4">
+              <li className="flex gap-5 md:gap-[30px]">
+                <NavLink className="inline-block" to="#">
+                  <img
+                    className="h-[130px]"
+                    src="/img/girl_in_grey.webp"
+                    alt="Оверсайз жакет CLASSY"
+                  />
+                </NavLink>
+
+                <div className="flex flex-col gap-4">
                   <NavLink className="hover:underline" to="#">
                     Оверсайз жакет CLASSY
                   </NavLink>
-                </td>
-                <td className="p-0 py-6 pr-2">M</td>
-                <td className="p-0 py-6 pr-2">світло-сірий</td>
-                <td className="p-0 py-6 font-bold">3650 ₴</td>
-              </tr>
-              <tr className="text-xs">
-                <td className="p-0 pr-2">
-                  <NavLink className="inline-block" to="#">
-                    <img
-                      className="h-[130px]"
-                      src="/img/girl_in_black.webp"
-                      alt="Сітка-лонг LAST DRINK"
-                    />
-                  </NavLink>
-                </td>
-                <td className="p-0 pr-2">
+                  <div>M/світло-сірий</div>
+                  <div className="mt-auto font-bold">3650 ₴</div>
+                </div>
+              </li>
+              <li className="flex gap-5 md:gap-[30px]">
+                <NavLink className="inline-block" to="#">
+                  <img
+                    className="h-[130px]"
+                    src="/img/girl_in_black.webp"
+                    alt="Сітка-лонг LAST DRINK"
+                  />
+                </NavLink>
+
+                <div className="flex flex-col gap-4">
                   <NavLink className="hover:underline" to="#">
                     Сітка-лонг LAST DRINK
                   </NavLink>
-                </td>
-                <td className="p-0 pr-2 uppercase">L</td>
-                <td className="p-0 pr-2">чорний</td>
-                <td className="p-0 font-bold">650 ₴</td>
-              </tr>
-            </tbody>
-          </table>
-          <div className="my-[60px] grid grid-cols-2 gap-16">
-            <div>
-              <h3 className="mb-4 font-bold">Доставка</h3>
-              <span>За тарифами перевізника</span>
-            </div>
-            <div>
-              <h3 className="mb-4 font-bold">Оплата</h3>
-              <span>Оплата під час отримання товара</span>
-            </div>
-            <div>
-              <h3 className="mb-4 font-bold">Адреса доставки</h3>
-              <div className="flex flex-col gap-1.5">
-                <span>м. Київ</span>
-                <span>вул. Вишнева</span>
-                <span>будинок 29 квартира 35</span>
-              </div>
+                  <div>L/світло-чорний</div>
+                  <div className="mt-auto font-bold">650 ₴</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div className="mb-4 mt-9">
+            <h3 className="mb-1 font-bold">Доставка</h3>
+            <span>За тарифами перевізника</span>
+          </div>
+          <div className="mb-4">
+            <h3 className="mb-1 font-bold">Оплата</h3>
+            <span>Оплата під час отримання товара</span>
+          </div>
+          <div>
+            <h3 className="mb-1 font-bold">Адреса доставки</h3>
+            <div className="flex flex-col gap-1.5">
+              <span>м. Київ</span>
+              <span>вул. Вишнева</span>
+              <span>будинок 29 квартира 35</span>
             </div>
           </div>
-          <div className="mb-1 flex justify-between">
+          <div className="mb-1 mt-9 flex justify-between">
             <span>Разом</span>
             <span>4300₴</span>
           </div>

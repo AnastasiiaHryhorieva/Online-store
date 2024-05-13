@@ -25,7 +25,7 @@ const Account = () => {
         <Breadcrumbs />
 
         <div className="mt-8 grid gap-x-20 md:grid-cols-[180px_1fr]">
-          <aside className="mt-5">
+          <aside className="max-md:mb-8 md:mt-5">
             <nav>
               <ul className="space-y-4">
                 {sidebarNavigationItems.map((item) => (
@@ -33,7 +33,7 @@ const Account = () => {
                     <NavLink
                       className={({ isActive }) =>
                         cn(
-                          "link-hover pb-0.5 text-base_l",
+                          "link-hover pb-0.5 lg:text-base_l",
                           isActive && "font-bold before:left-0 before:w-full",
                         )
                       }
@@ -46,7 +46,10 @@ const Account = () => {
                 ))}
               </ul>
 
-              <NavLink className="link-hover mt-[50px] inline-block" to="/">
+              <NavLink
+                className="link-hover mt-4 inline-block md:mt-5 lg:mt-[50px]"
+                to="/"
+              >
                 Вийти з кабінету
               </NavLink>
             </nav>

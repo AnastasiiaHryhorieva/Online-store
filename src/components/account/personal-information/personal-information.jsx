@@ -44,11 +44,13 @@ const PersonalInformation = () => {
   };
 
   return (
-    <div>
-      <h2 className="mb-6 text-title">Особисті дані</h2>
+    <div className="lg:max-w-[750px]">
+      <h2 className="mb-4 max-lg:font-bold lg:mb-6 lg:text-title">
+        Особисті дані
+      </h2>
       <Form {...personalForm}>
         <form
-          className="mb-[60px]"
+          className="mb-[40px] lg:mb-[60px]"
           onSubmit={personalForm.handleSubmit(handlePersonalForm)}
         >
           <div className="grid gap-[20px] md:grid-cols-2">
@@ -62,7 +64,7 @@ const PersonalInformation = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px]"
+                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px] outline-none transition-all focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="text"
                       {...field}
                     />
@@ -81,7 +83,7 @@ const PersonalInformation = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px]"
+                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px] outline-none transition-all focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="text"
                       {...field}
                     />
@@ -100,7 +102,7 @@ const PersonalInformation = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px]"
+                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px] outline-none transition-all focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="email"
                       {...field}
                     />
@@ -119,7 +121,7 @@ const PersonalInformation = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px]"
+                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px] outline-none transition-all focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="tel"
                       {...field}
                     />
@@ -140,10 +142,12 @@ const PersonalInformation = () => {
         </form>
       </Form>
 
-      <h2 className="mb-6 text-title">Адреса доставки</h2>
+      <h2 className="mb-4 max-lg:font-bold lg:mb-6 lg:text-title">
+        Адреса доставки
+      </h2>
       <Form {...addressForm}>
         <form
-          className="mb-[60px]"
+          className="mb-[40px] lg:mb-[60px]"
           onSubmit={addressForm.handleSubmit(handleAddressForm)}
         >
           <div className="grid gap-[20px] md:grid-cols-2">
@@ -157,7 +161,7 @@ const PersonalInformation = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px]"
+                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px] outline-none transition-all focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="text"
                       {...field}
                     />
@@ -176,7 +180,7 @@ const PersonalInformation = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px]"
+                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px] outline-none transition-all focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="text"
                       {...field}
                     />
@@ -195,7 +199,7 @@ const PersonalInformation = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px]"
+                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px] outline-none transition-all focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="email"
                       {...field}
                     />
@@ -214,7 +218,7 @@ const PersonalInformation = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px]"
+                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px] outline-none transition-all focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="tel"
                       {...field}
                     />
@@ -233,7 +237,7 @@ const PersonalInformation = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px]"
+                      className="h-[60px] w-full border-[#f4f4f4] bg-[#f4f4f4] px-4 pb-3 pt-[25px] outline-none transition-all focus:border-black focus:shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                       type="tel"
                       {...field}
                     />
