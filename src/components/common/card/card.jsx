@@ -36,7 +36,7 @@ const Card = ({
       <div className="p-4 pb-0">
         <div className="flex gap-3">
           <div className="flex-grow">
-            <p className="text-base uppercase">
+            <p className="text-xs uppercase lg:text-base">
               <NavLink className="hover:underline" to={`/product/${slug}`}>
                 {title}
               </NavLink>
@@ -79,7 +79,7 @@ const Card = ({
           <div className="flex flex-col">
             {discount ? (
               <>
-                <span className="whitespace-nowrap text-base text-[--red]">
+                <span className="whitespace-nowrap text-xs text-[--red] lg:text-base">
                   {discountPrice} <sup>-{discount}%</sup>
                 </span>
                 <span className="whitespace-nowrap text-sm text-black/60 line-through">

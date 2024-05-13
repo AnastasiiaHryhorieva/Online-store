@@ -11,9 +11,9 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
+      padding: {
+        DEFAULT: "16px",
+        md: "20px",
       },
     },
     screens: {
@@ -56,7 +56,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "collection-bg": "url('/img/collection.webp')",
+        collection: "url('/img/collection.jpg')",
       },
       colors: {
         border: "hsl(var(--border))",

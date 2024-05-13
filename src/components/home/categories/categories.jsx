@@ -1,10 +1,13 @@
 import { useAllCategories } from "@/hooks/graphQL/useAllCategories";
 import { CategoryCard } from "@/components/common/category-card/category-card";
-import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 const Categories = () => {
-  const skeletons = Array(1, 2, 3);
-  const { loading, data: categories } = useAllCategories({
+  const { data: categories } = useAllCategories({
     first: 2,
   });
 
@@ -22,31 +25,31 @@ const Categories = () => {
   };
 
   return (
-    <section className="mb-[75px] md:mb-[150px]">
+    <section className="my-[60px] lg:my-[115px]">
       <div className="container">
-        <ul className="grid gap-[30px] max-md:justify-items-center sm:grid-cols-[repeat(auto-fill,_minmax(240px,_1fr))] lg:grid-cols-3">
-          {loading ? (
-            <>
-              {skeletons.map((_, index) => (
-                <li key={index} className="w-full">
-                  <Skeleton className="h-[240px] w-full" />
-                  <Skeleton className="mt-4 h-6 w-full" />
-                </li>
-              ))}
-            </>
-          ) : (
-            <>
-              <li>
-                <CategoryCard category={allProductsCategory} />
-              </li>
-              {categories.map((category) => (
-                <li key={category.id}>
-                  <CategoryCard category={category} />
-                </li>
-              ))}
-            </>
-          )}
-        </ul>
+        <Carousel
+          className="max-md:max-w-[calc(100vw_-_32px)]"
+          opts={{
+            containScroll: "keepSnaps",
+            breakpoints: {
+              "(min-width: 480px)": { slidesToScroll: 2 },
+            },
+          }}
+        >
+          <CarouselContent>
+            <CarouselItem className="basis-[75%] sm:basis-[40%] md:basis-1/3">
+              <CategoryCard category={allProductsCategory} />
+            </CarouselItem>
+            {categories?.map((category) => (
+              <CarouselItem
+                key={category.id}
+                className="basis-[75%] sm:basis-[40%] md:basis-1/3"
+              >
+                <CategoryCard category={category} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );

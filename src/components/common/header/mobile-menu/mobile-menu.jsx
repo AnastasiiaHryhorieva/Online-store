@@ -22,12 +22,8 @@ const MobileMenu = ({ className }) => {
         align="start"
       >
         {navigationItems.map((item) => (
-          <DropdownMenuItem className="p-0">
-            <NavLink
-              key={item.id}
-              className="link-hover pb-[2px] uppercase"
-              to={item.url}
-            >
+          <DropdownMenuItem key={item.id} className="p-0">
+            <NavLink className="link-hover pb-[2px] uppercase" to={item.url}>
               {item.title}
             </NavLink>
           </DropdownMenuItem>

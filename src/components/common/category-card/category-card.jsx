@@ -12,7 +12,9 @@ const CategoryCard = ({ category }) => {
         <Image className="mb-4" data={image.responsiveImage} />
       </NavLink>
       <NavLink className="flex items-center" to={"/catalog/" + category.slug}>
-        <h2 className="text-base font-semibold uppercase">{category.title}</h2>
+        <h2 className="text-xs font-semibold uppercase md:text-base">
+          {category.title}
+        </h2>
         <Icon
           className="ml-4 duration-200 group-hover:translate-x-1"
           name="arrowRight"

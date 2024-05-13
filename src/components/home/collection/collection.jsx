@@ -4,15 +4,15 @@ import { buttonVariants } from "@/components/ui/button";
 
 const Collection = () => {
   return (
-    <section className="bg-collection-bg bg-cover bg-center bg-no-repeat pb-[35px] pt-[270px] sm:pt-[320px] md:pt-[400px]">
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="text-stroke-black mb-9 max-w-2xl text-center text-[50px] font-bold uppercase leading-tight text-transparent sm:text-[70px] md:text-[100px]">
+    <section className="mx-auto max-w-[1140px]">
+      <div className="collection flex min-h-[400px] flex-col items-center md:min-h-[620px] lg:min-h-[706px]">
+        <h1 className="text-stroke-black mb-4 mt-auto px-6 text-center text-[34px] font-bold uppercase leading-tight text-transparent md:text-[60px] lg:text-[80px]">
           SS&apos;2023 Collection
         </h1>
         <NavLink
           className={
             buttonVariants({ variant: "outlineReverse" }) +
-            " min-w-[226px] text-base_l"
+            " mb-[35px] w-auto min-w-[226px] text-base_l"
           }
           to="/catalog"
         >
