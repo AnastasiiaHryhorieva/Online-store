@@ -70,7 +70,7 @@ const Product = () => {
   const productSizes = Object.keys(product.sizes);
 
   return (
-    <section className="pb-[150px] pt-4">
+    <section className="pb-[40px] pt-4 lg:pb-[150px]">
       <div className="container">
         <Breadcrumbs
           urls={[
@@ -89,16 +89,16 @@ const Product = () => {
           ]}
         />
 
-        <div className="mb-[75px] mt-10 grid gap-10 md:grid-cols-2 lg:mb-[150px] lg:grid-cols-[290px_1fr_290px]">
+        <div className="mb-[40px] mt-4 grid gap-4 md:grid-cols-2 md:gap-10 lg:mb-[150px] lg:mt-10 lg:grid-cols-[290px_1fr_290px]">
           <div className="flex flex-col">
-            <h1 className="mb-2.5 text-title">
+            <h1 className="mb-2.5 text-base_l lg:text-title">
               {product.title}
               {product.isnew && (
                 <span className="uppercase text-[--green]"> new</span>
               )}
             </h1>
 
-            <div className="mb-2.5 flex flex-col text-[32px] font-bold">
+            <div className="mb-2.5 flex flex-col text-base_l font-bold lg:text-[32px]">
               {product.discount ? (
                 <>
                   <span className="whitespace-nowrap text-[--red]">
@@ -132,7 +132,7 @@ const Product = () => {
               )}
             </div>
 
-            <Accordion className="mt-10" type="multiple">
+            <Accordion className="mt-4 max-md:hidden lg:mt-10" type="multiple">
               <AccordionItem value="item-1">
                 <AccordionTrigger className="border-b py-5" icon>
                   Опис товару
@@ -160,7 +160,7 @@ const Product = () => {
             </Accordion>
           </div>
 
-          <div>
+          <div className="max-md:-order-1">
             {/* Main slider */}
             <Carousel className="w-full" setApi={setMainApi}>
               <CarouselContent>
@@ -176,7 +176,7 @@ const Product = () => {
 
             {/* Thumbs slider */}
             <Carousel
-              className="mt-4 w-full"
+              className="mt-4 w-full max-lg:hidden"
               setApi={setThumbsApi}
               opts={{
                 containScroll: "keepSnaps",
@@ -197,7 +197,7 @@ const Product = () => {
             </Carousel>
           </div>
 
-          <div className="flex flex-col gap-10 md:max-lg:col-start-2">
+          <div className="flex flex-col gap-4 md:gap-10 md:max-lg:col-start-2">
             <div>
               <h2 className="mb-4 text-base">Оберіть розмір</h2>
               <RadioGroup className="flex flex-wrap gap-3" defaultValue="xs">
@@ -277,6 +277,33 @@ const Product = () => {
                 />
               </button>
             </div>
+
+            <Accordion className="mt-4 md:hidden lg:mt-10" type="multiple">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="border-b py-5" icon>
+                  Опис товару
+                </AccordionTrigger>
+                <AccordionContent className="border-b py-5">
+                  {product.description || "Інформація відсутня."}
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="border-b py-5" icon>
+                  Склад
+                </AccordionTrigger>
+                <AccordionContent className="border-b py-5">
+                  {product.composition || "Інформація відсутня."}
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="border-b py-5" icon>
+                  Догляд за річчю
+                </AccordionTrigger>
+                <AccordionContent className="border-b py-5">
+                  {product.care || "Інформація відсутня."}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
 
