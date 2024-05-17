@@ -10,6 +10,7 @@ import Twitter from "@/assets/img/icons/twitter.svg?react";
 import Bell from "@/assets/img/icons/bell.svg?react";
 import Trash from "@/assets/img/icons/trash.svg?react";
 import Menu from "@/assets/img/icons/menu.svg?react";
+import Filters from "@/assets/img/icons/filters.svg?react";
 
 const icons = {
   arrowRight: ArrowRight,
@@ -24,6 +25,7 @@ const icons = {
   bell: Bell,
   trash: Trash,
   menu: Menu,
+  filters: Filters,
 };
 
 const Icon = ({ className, name, size = 24 }) => {

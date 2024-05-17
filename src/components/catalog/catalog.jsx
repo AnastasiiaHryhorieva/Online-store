@@ -17,6 +17,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { FiltersMobile } from "@/components/common/filters-mobile/filters-mobile";
 
 const Catalog = () => {
   const params = useParams();
@@ -121,7 +122,13 @@ const Catalog = () => {
             <h1 className="-mt-4 mb-6 text-title leading-none">
               {getBreadcrumbLabel(pathname)}
             </h1>
-            <Filters />
+
+            <div className="lg:hidden">
+              <FiltersMobile />
+            </div>
+            <div className="max-lg:hidden">
+              <Filters />
+            </div>
             <div className="mb-16 mt-6 grid gap-[30px] max-md:justify-items-center sm:grid-cols-[repeat(auto-fill,_minmax(240px,_1fr))] lg:grid-cols-3">
               {loading ? (
                 <>
